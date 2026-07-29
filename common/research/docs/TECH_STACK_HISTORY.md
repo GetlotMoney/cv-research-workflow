@@ -1,6 +1,11 @@
 # 技术演进历史
 
-本文件按版本追加，保留通用工作流技术方案的采用、替换和放弃记录。
+> 历史记录，不能作为当前操作说明。当前公开版本统一称为“科研工作流 V1.0”。
+
+本文件按版本追加，保留正式 V1.0 发布前的科研引擎技术选择、替换和放弃记录。当前操作请读取系统根目录 `README.md` 和当前 Skill。
+
+<details>
+<summary>展开查看正式 V1.0 发布前的内部开发记录</summary>
 
 ## 版本类型说明
 
@@ -730,7 +735,7 @@
 - 实际可见效果：没有活动效果。工作流仍根据真实影响选择一、二或三轮，小改不被强制做两轮，重要训练、评估和论文结论也不会被固定两轮封顶。
 - 选择原因：放弃固定轮数，是因为审核强度应跟影响范围相称；固定两轮会让低风险修改多做无效等待，也可能让高风险改动少一次必要的收口检查。
 - 已知限制：审核轮数本身不能替代机器测试；promotion、论文主张、删除、push 和发布仍保留原安全与授权门槛。
-- 素材位置：草案核验和放弃原因保存在 `docs/superpowers/reviews/2026-07-23-two-round-policy-review.md`；历史场景 `tests/skill_scenarios/red-attempt.md` 保持原样。
+- 素材位置：草案核验和放弃原因保存在 Git 历史；历史测试样本现为 `tests/skill_scenarios/red-attempt.txt`，不能作为当前操作说明。
 - 验证命令与结果：草案阶段的定向检查曾通过；放弃草案后重新运行文档测试、场景证据检查、补丁格式检查和源码/安装版一致性检查，结果见对应审核记录。
 - 回退方式：本条只保留历史说明，不提供重新启用固定两轮的自动回退；如未来确有新证据支持，应建立新的 `SKILL-POLICY-*` 候选并重新审核，而不是复活旧草案。
 
@@ -883,3 +888,5 @@
 - 素材位置：核心派生逻辑在 `skills/cv-experiment-workflow/scripts/workflow_core/checklists.py`，命令接线在 `scripts/rw.py` 与 `workflow_core/planning.py`，回归测试在 `tests/test_task_checklists.py` 和 `tests/test_skill_docs.py`，审核证据在 `docs/superpowers/reviews/2026-07-19-derived-task-lists-review.md`。
 - 验证命令与结果：实现阶段运行全量 `unittest`，结果为 `Ran 458, OK (skipped=5)`；本次运行 `tests.test_task_checklists` 为 `Ran 10, OK`，`tests.test_skill_docs` 为 `Ran 17, OK`，文档预算为 `SKILL=125/220, references=320/800`，`git diff --check` 无输出并通过。
 - 回退方式：先回退本次文档提交；若连功能一起撤销，再依次回退修复提交 `f1c1baef` 和功能提交 `b3d7c486`。清单从未落盘，因此不需要迁移或清理用户数据。
+
+</details>

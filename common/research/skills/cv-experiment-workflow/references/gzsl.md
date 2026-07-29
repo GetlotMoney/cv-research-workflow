@@ -1,20 +1,25 @@
-# GZSL 参考包
+# GZSL 当前规则
 
-Generalized Zero-Shot Learning（广义零样本学习，GZSL）只是一个可选领域参考包，不是核心工作流。核心对象、模板选择、指标、阈值和 promotion 规则都不得依赖 GZSL；其他计算机视觉方向可以完全不加载本文件。
+GZSL（广义零样本学习）是科研工作流 V1.0 唯一开放方向。
 
-`assets/reference-packs/gzsl.json` 收录四篇起点资料：
+## 数据
 
-1. Chao 等，*An Empirical Study and Analysis of Generalized Zero-Shot Learning for Object Recognition in the Wild*（2016）：用于理解任务设定与评估问题。
-2. Xian 等，*Zero-Shot Learning — The Good, the Bad and the Ugly*（2017）：用于核对数据划分、协议与常见比较陷阱。
-3. Xian 等，*Feature Generating Networks for Zero-Shot Learning*（2018）：用于定位生成式机制的论文来源。
-4. Schonfeld 等，*Generalized Zero- and Few-Shot Learning via Aligned Variational Autoencoders*（2019）：用于定位对齐表示机制的论文来源。
+数据以外置 NPZ 文件登记，必须包含训练特征、训练标签、测试已见类特征与标签、测试未见类特征与标签、类别语义向量和划分信息。
 
-参考包只提供论文元数据起点，不代表全文已读、claim 已核验，也不提供官方代码出处。使用步骤：
+系统记录数据集名称、版本、来源、许可证、文件 SHA-256 和内容清单。原始 NPZ 不进入 Git。
 
-1. 仅在用户明确处理 GZSL Idea 时读取 JSON。
-2. 选择与 Idea 机制直接相关的论文，打开原文核对题名、作者、年份、URL 和具体页码/章节/公式。
-3. 在 provenance 中把直接机制论文标为 `primary_mechanism`，其余标为 `supporting`；只有实际核对后才写 `verification_status: verified`。
-4. 论文不能证明代码来源。若复制、改编或参考官方实现，另行核对仓库、40 位 commit、文件、symbols 与 license。
-5. 依据机制的接入位置选择通用结构模板；不要因为论文属于 GZSL 就硬选某个 family。
+## 指标
 
-项目自己的数据字段、评估指标、确认次数和晋级阈值应写在目标项目适配层，不得写回 Skill 模板或此参考包。
+- `S`：已见类别平均准确率；
+- `U`：未见类别平均准确率；
+- `H`：`S` 与 `U` 的调和平均。
+
+正式比较必须使用相同数据、划分和评估规则。不能只手填两组相同数字来证明等价。
+
+## GPU
+
+训练、评估和推理固定使用 `dvsr_gpu` 与 CUDA。中央 CUDA 探针必须完成真实张量计算，不接受外来代码自报设备状态。
+
+## 外来 Framework
+
+标准化时要解释数据、模型、损失、训练、评估、推理、指标和配置。等价检查必须在临时 Git 快照中删除旧结果后重新执行，并核对结果文件与产物哈希。

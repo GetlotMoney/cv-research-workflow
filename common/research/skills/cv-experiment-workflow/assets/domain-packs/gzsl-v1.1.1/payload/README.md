@@ -1,34 +1,28 @@
-# 广义零样本学习方向仓库
+# GZSL 方向仓库
 
-这是 `PACK-GZSL-V1.1.1` 的自包含基线。它使用线性视觉到属性映射，真实执行前向、MSE、反向传播和参数更新；评估与推理分别从磁盘重载 `state_dict`。本仓库固定使用 Conda 环境 `dvsr_gpu` 和 CUDA，合成调试与真实数据实验都在 GPU 上运行。它不联网、不自动下载数据，也不做 calibrated stacking（校准堆叠）或其他分数校准。
+GZSL（广义零样本学习）是科研工作流 V1.0 唯一开放方向。
 
-## 最小检查
+## 当前能力
 
-```powershell
-<GPU_PYTHON> -m gzsl.smoke --work-dir runs/smoke --device cuda
-```
+- 完整基础 Framework；
+- 复现、调参、消融和创新；
+- 独立分支与 Worktree；
+- 外置 NPZ 数据登记；
+- GPU debug 与正式 Run；
+- S、U、H 评估；
+- 人工确认；
+- 外来 Framework 标准化和等价检查。
 
-合成结果始终是 `synthetic_debug_only`、`paper_eligible=false`，只输出三个 `debug_*` 指标，不能变成论文成绩。
+## 数据要求
 
-## 严格 NPZ 合同
+原始 NPZ 留在仓库外。系统只提交数据集名称、版本、来源、许可证、SHA-256 和内容清单。
 
-NPZ 必须在 `allow_pickle=False` 下读取，并精确包含：
+## 运行要求
 
-- `features`: float32 `[N（样本数量）, D（视觉特征维度）]`
-- `labels`: int64 `[N（样本数量）]`
-- `attributes`: float32 `[C（类别数量）, A（语义属性维度）]`
-- `class_ids`: int64 `[C（类别数量）]`
-- `seen_class_ids`、`unseen_class_ids`: 互斥且完整覆盖 `class_ids`
-- `train_indices`、`test_seen_indices`、`test_unseen_indices`: 互斥且覆盖全部样本
+所有运行固定使用 `dvsr_gpu` 和 CUDA，没有 CPU 退路。先做小规模 GPU debug，再用相同配置和随机种子做正式 Run。
 
-类别与属性行的唯一映射是：`class_ids[index]` 对应 `attributes[index]`。训练划分只能含 seen 类；seen/unseen 测试划分必须分别覆盖所有声明类别。object dtype、pickle、NaN/Inf、重复 ID、缺失类别、越界或重复索引全部拒绝。正式运行只读取一次 NPZ，并让清单、训练和评估共享同一份冻结 bytes；在 `numpy.load` 前先检查 ZIP 成员、NPY header、压缩比以及单项和总展开体积，拒绝压缩炸弹与超预算数组。
+合成小数据只证明代码链路可用，不能当成正式成绩。
 
-正式分类候选是 `seen ∪ unseen`，用余弦相似度且不校准。`S` 和 `U` 都先逐类算准确率再做类别平均，`H=2*S*U/(S+U)`；当 `S+U=0` 时明确定义 `H=0`。
+## 开始位置
 
-```powershell
-python -m gzsl.train --config configs/baseline.json --data-path <本地数据文件> --output-dir runs\baseline --dataset-id my-gzsl --dataset-version 1 --source-uri https://example.org/my-gzsl --manifest-sha256 <真实清单哈希>
-python -m gzsl.evaluate --checkpoint runs\baseline\checkpoint.pt --data-path <本地数据文件> --output-dir runs\evaluate --device cuda
-python -m gzsl.infer --checkpoint runs\baseline\checkpoint.pt --data-path <本地数据文件> --output-dir runs\infer --device cuda
-```
-
-`DOWNLOADS.json` 只给 AwA2 地址和许可证复核提醒，不打包大数据。方向包不会自行批准论文结果。
+普通用户从系统页面创建仓库和实验，不需要直接调用本目录中的内部脚本。详细步骤见系统根目录 `docs/USAGE.md`。

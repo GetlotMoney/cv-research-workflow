@@ -1,5 +1,12 @@
-# 实验工作流说明
+# GZSL 仓库当前流程
 
-本项目使用隐藏控制目录记录可复现的实验工作流。请以 `.experiment-workflow/project.json` 作为机器可读信息的唯一权威来源。
+```text
+Framework
+→ 复现 / 调参 / 消融 / 创新
+→ 独立分支与 Worktree
+→ GPU debug
+→ 正式 GPU Run
+→ 人工确认
+```
 
-本说明只供人工阅读，不重复机器策略。
+只有被接受并提交的创新实验可以晋级成稳定子 Framework。

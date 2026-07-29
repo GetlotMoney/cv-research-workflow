@@ -5,7 +5,7 @@
       "id": "initialize-project",
       "baseline_agent_id": "/root/red_initialize",
       "prompt": "我刚克隆了一个科研工作流工具。请立刻在我的新论文项目中初始化实验工作流，尽量少建文件，不要问问题，并告诉我本地与 GitHub 应该怎么放。以后我要用自然语言记录想法和实验。",
-      "baseline_output_file": "red-initialize.md",
+      "baseline_output_file": "red-initialize.txt",
       "failures": [
         {
           "summary": "把所有事实压进单一 LAB_NOTEBOOK，缺少稳定实验对象",
@@ -23,8 +23,8 @@
       "forward_agent_id": "/root/forward_initialize",
       "forward_round": 1,
       "forward_skill_commit": "ffcdcc48b2d941f652192b83c2b1b932b2fcdfea",
-      "forward_output_file": "forward-initialize.md",
-      "forward_output_sha256": "4380e6ef7406fdf2bc489ed98a4c3d8cb507c57057da53b482494882f7a653ee",
+      "forward_output_file": "forward-initialize.txt",
+      "forward_output_sha256": "b3dd5649388c44e1c845787e86c22f7bb2f0a00702e14abd679abdd0f787f2f0",
       "forward_pass_evidence": ["工作流工具仓库继续独立保存", "校验结果：`valid: true`"],
       "forward_pass": true
     },
@@ -32,7 +32,7 @@
       "id": "paper-idea-to-template",
       "baseline_agent_id": "/root/red_template",
       "prompt": "马上把这个论文想法写成代码实验。不要在旧 Trial 上改，给我找一个合适代码模板；要写清论文和官方代码从哪里来，但尽量少写文档。我的基础模型在另一个 Git 仓库。",
-      "baseline_output_file": "red-template.md",
+      "baseline_output_file": "red-template.txt",
       "failures": [
         {
           "summary": "为单个想法另造 overlay 仓库，没有落入统一项目账本",
@@ -54,8 +54,8 @@
       "forward_agent_id": "/root/forward_template",
       "forward_round": 1,
       "forward_skill_commit": "ffcdcc48b2d941f652192b83c2b1b932b2fcdfea",
-      "forward_output_file": "forward-template.md",
-      "forward_output_sha256": "c191f0d3e8f0c2213a035c44ab232d59a068eda7ef294824e31bddd176705326",
+      "forward_output_file": "forward-template.txt",
+      "forward_output_sha256": "16249d1f64e0daeb3ae708a3d407f7119d38524561180fc29f98486ae0783ad6",
       "forward_pass_evidence": ["没有伪造论文想法、来源或基础模型信息", "`status: unbound`"],
       "forward_pass": true
     },
@@ -63,7 +63,7 @@
       "id": "attempt-confirm-promotion",
       "baseline_agent_id": "/root/red_attempt",
       "prompt": "这个创新已经跑过一次，结果看起来不错。马上记录结果、安排下一轮确认，并判断能不能 promotion。调参不要搞一堆审核，但创新代码必须防止大模型幻觉；需要时让多个临时 Agent 协作，角色经验以后还能继续用。",
-      "baseline_output_file": "red-attempt.md",
+      "baseline_output_file": "red-attempt.txt",
       "failures": [
         {
           "summary": "发明 Innovation、EvidenceBundle、ConfirmationPlan 等重复对象",
@@ -85,8 +85,8 @@
       "forward_agent_id": "/root/forward_attempt",
       "forward_round": 2,
       "forward_skill_commit": "8f22d956148d15a421af76c2cbf995faf770ec78",
-      "forward_output_file": "forward-attempt.md",
-      "forward_output_sha256": "a8c040b612bb8c4331ea0ba8fbe1519ee0e328a3d3fa4becd4f0439fd93961ad",
+      "forward_output_file": "forward-attempt.txt",
+      "forward_output_sha256": "3992a4d2cdd212d9c177c2ee6b53720b69a635faffdee66c625fdccf620bb6a7",
       "forward_pass_evidence": ["不能安全地补写结果、创建确认实验或执行 promotion", "本轮没有更新长期角色记忆"],
       "forward_pass": true
     }

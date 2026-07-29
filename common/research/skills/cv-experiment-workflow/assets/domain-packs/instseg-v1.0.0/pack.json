@@ -22,8 +22,8 @@
     },
     {
       "path": "README.md",
-      "sha256": "da8b7831f2a4a848880d8c6e889e64666d6b87a099d90ad49479bb227ae61326",
-      "size": 2688
+      "sha256": "8c30c165a2b87547fc457b697bdff2b12d5baaa9ccb7916bc287617d7c5fcc46",
+      "size": 450
     },
     {
       "path": "configs/baseline.json",

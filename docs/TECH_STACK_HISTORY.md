@@ -1,5 +1,12 @@
 # 技术方案演进记录
 
+> 历史记录，不能作为当前操作说明。当前公开版本统一称为“科研工作流 V1.0”，当前用法见根目录 `README.md`。
+
+本文件按项目规则保留过去的技术选择、替换和回退方法。下面出现的系统、界面、数据、环境和 Skill 编号都是 V1.0 正式发布前的内部开发编号。
+
+<details>
+<summary>展开查看正式 V1.0 发布前的内部技术记录</summary>
+
 ## 版本类型说明
 
 | 前缀 | 含义 |
@@ -46,7 +53,7 @@
 - 已知限制：外来代码仍不是操作系统沙箱，只能运行已人工审读的可信代码；复核人名字是人工声明，不是数字身份认证。
 - 素材位置：`common/research/skills/cv-experiment-workflow/`、`web/index.html`、`tests/`。
 - 验证命令：外来框架真假反例、创新真实基线 GPU 闭环、并发数据登记、Framework 全组和 Ultra 同反例复核。
-- 当前结果：根目录 41 项完整回归通过；全新发布树先安装再跑 41 项也通过；Framework 10 项、外来框架真假反例、真实创新基线、并发登记与失败重试均通过；三路独立复核结论均为 `PASS`。通用科研文件已发布到私有仓库 `GetlotMoney/cv-research-workflow`，确切数字见 `docs/reviews/RESEARCH_V2_VALIDATION.md`。
+- 当前结果：根目录 41 项完整回归通过；全新发布树先安装再跑 41 项也通过；Framework 10 项、外来框架真假反例、真实创新基线、并发登记与失败重试均通过；三路独立复核结论均为 `PASS`。这是正式 V1.0 发布前的历史结果，旧验证原文可从 Git 历史回查，当前验证入口见 `docs/reviews/CURRENT_VALIDATION.md`。
 - 回退方式：恢复 `SYS-RESEARCH-V2.0.1` 候选；不建议，因为会重新开放已证实的假阳性。
 
 ## SYS-RESEARCH-V2.0.1、UI-RESEARCH-V2.0.1、DATA-RESEARCH-V2.0.1、SKILL-RESEARCH-V2.0.1：最终证据收口
@@ -61,7 +68,7 @@
 - 已知限制：外来代码的信任确认不是操作系统沙箱；只允许运行已人工审读的可信代码。当前 NPZ 单文件上限为 1 GiB，并保留成员数和解压总量限制。
 - 素材位置：`app/`、`web/`、`common/research/skills/cv-experiment-workflow/`、`tests/`。
 - 验证命令：Framework 专项、GZSL 方向包专项、四路线与证据专项、根目录完整测试、真实 CUDA 端到端、安装器检查和浏览器验收。
-- 当前结果：机器测试已通过；确切数字与独立审核结论写入 `docs/reviews/RESEARCH_V2_VALIDATION.md`。
+- 当前结果：机器测试已通过；这是正式 V1.0 发布前的历史结果，旧验证原文可从 Git 历史回查，当前验证入口见 `docs/reviews/CURRENT_VALIDATION.md`。
 - 回退方式：恢复 `SYS-RESEARCH-V2.0.0` 对应提交；原始数据仍在仓库外，不需要迁移或回滚。
 
 ## PACK-GZSL-V1.1.1：证据一致性与外置数据修订
@@ -378,3 +385,5 @@
 - 验证命令：统一页面、API、启动器和本机 HTTP 测试。
 - 当前结果：入口、GPU 状态、仓库操作、PaperFlow 跳转和安全 token 均通过验证。
 - 回退方式：运行 `停止工作流.bat`；它只停止本系统，不删除数据。
+
+</details>

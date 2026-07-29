@@ -4,8 +4,8 @@
   "agent_id": "/root/forward_attempt",
   "round": 1,
   "evaluated_skill_commit": "ffcdcc48b2d941f652192b83c2b1b932b2fcdfea",
-  "output_file": "forward-attempt-round1.md",
-  "output_sha256": "8bd647b49af9d41a3855ce6f0173d0feb50c832edc0bb5246ab865eadf11f38c",
+  "output_file": "forward-attempt-round1.txt",
+  "output_sha256": "cce34cd4f9a03bd9e4653e43989f7e4a9864ed3f0d5d93e7abfa1ea597ab66cb",
   "pass": false,
   "failures": [
     {
@@ -20,8 +20,8 @@
   "fix_commit": "8f22d956148d15a421af76c2cbf995faf770ec78",
   "final_retest": {
     "round": 2,
-    "output_file": "forward-attempt.md",
-    "output_sha256": "a8c040b612bb8c4331ea0ba8fbe1519ee0e328a3d3fa4becd4f0439fd93961ad",
+    "output_file": "forward-attempt.txt",
+    "output_sha256": "3992a4d2cdd212d9c177c2ee6b53720b69a635faffdee66c625fdccf620bb6a7",
     "pass": true
   }
 }

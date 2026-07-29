@@ -584,7 +584,7 @@ class SixDomainPacksSmokeTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "Run"):
             tool._validate_lineage_proof(conflated)
 
-    def test_gzsl_is_cuda_only_while_pending_packs_keep_legacy_cpu_smoke(
+    def test_gzsl_is_cuda_only_and_pending_packs_are_not_published(
         self,
     ) -> None:
         for direction in ("cls", "det", "instseg", "seg", "sr", "gzsl"):
@@ -601,15 +601,15 @@ class SixDomainPacksSmokeTests(unittest.TestCase):
                     )
                 )
                 self.assertEqual("cuda", baseline["device"])
-                self.assertEqual(
-                    "cuda" if direction == "gzsl" else "cpu",
-                    smoke["device"],
-                )
                 readme = (payload / "README.md").read_text(encoding="utf-8")
                 if direction == "gzsl":
-                    self.assertIn("固定使用 Conda 环境 `dvsr_gpu` 和 CUDA", readme)
+                    self.assertEqual("cuda", smoke["device"])
+                    self.assertIn("固定使用 `dvsr_gpu` 和 CUDA", readme)
+                    self.assertIn("没有 CPU 退路", readme)
                 else:
-                    self.assertIn("真实数据 baseline 默认使用 CUDA", readme)
+                    self.assertIn("尚未开放", readme)
+                    self.assertIn("不能创建仓库或运行实验", readme)
+                    self.assertNotIn("python ", readme.lower())
 
         cls = _load_adapter("cls")
         cls_config = {

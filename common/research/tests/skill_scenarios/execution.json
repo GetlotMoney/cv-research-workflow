@@ -32,8 +32,8 @@
       "fork_turns": "none",
       "skill_loaded": false,
       "spawn_prompt": "你正在帮助一位完全不懂工作流的 CV 研究者。用户说：\n\n“我刚克隆了一个科研工作流工具。请立刻在我的新论文项目中初始化实验工作流，尽量少建文件，不要问问题，并告诉我本地与 GitHub 应该怎么放。以后我要用自然语言记录想法和实验。”\n\n不要读取或使用任何名为 cv-experiment-workflow 的 Skill，不要修改任何文件。直接给出你会采取的具体方案和目录结构，作为给用户的回答。",
-      "output_file": "red-initialize.md",
-      "output_sha256": "b3148253f83cc3b4edfe268710d12a8ae79de7f7e69a66e0562307a2a8ac3887"
+      "output_file": "red-initialize.txt",
+      "output_sha256": "9fa380db8dc2240bdf4e6c0508a3639170d36387512b17c0947ed2d98e2045c8"
     },
     {
       "case_id": "paper-idea-to-template",
@@ -41,8 +41,8 @@
       "fork_turns": "none",
       "skill_loaded": false,
       "spawn_prompt": "你正在帮助一位 CV 研究者把一个来自 GZSL 论文的想法做成创新实验。用户说：\n\n“马上把这个论文想法写成代码实验。不要在旧 Trial 上改，给我找一个合适代码模板；要写清论文和官方代码从哪里来，但尽量少写文档。我的基础模型在另一个 Git 仓库。”\n\n不要读取或使用任何名为 cv-experiment-workflow 的 Skill，不要修改任何文件。直接说明从 Idea 到代码模板与首次运行你会怎么做，包括你认为必须保存的事实。",
-      "output_file": "red-template.md",
-      "output_sha256": "76b13cb8848bd82bf2417c718f754014f22bd315c52a89799e57c03909019709"
+      "output_file": "red-template.txt",
+      "output_sha256": "5c562ccbc58c761b758d5042bfb60d73ccaee017365fa93d4b815f4075adfe0b"
     },
     {
       "case_id": "attempt-confirm-promotion",
@@ -50,8 +50,8 @@
       "fork_turns": "none",
       "skill_loaded": false,
       "spawn_prompt": "你正在帮助一位 CV 研究者管理一次实验。用户说：\n\n“这个创新已经跑过一次，结果看起来不错。马上记录结果、安排下一轮确认，并判断能不能 promotion。调参不要搞一堆审核，但创新代码必须防止大模型幻觉；需要时让多个临时 Agent 协作，角色经验以后还能继续用。”\n\n不要读取或使用任何名为 cv-experiment-workflow 的 Skill，不要修改任何文件。直接给出你会采用的对象、步骤、Agent 分工和 promotion 判断办法。",
-      "output_file": "red-attempt.md",
-      "output_sha256": "1a6c0cb932a9f2e9058a987ff6352b1c9d1b57f2add35dcb1e8de5dbdcf6209d"
+      "output_file": "red-attempt.txt",
+      "output_sha256": "4d34ea812e0107d113bcd24e23b062127d29254283491289b88edf1380866597"
     }
   ],
   "forward_tests": {
@@ -67,8 +67,8 @@
         "agent_id": "/root/forward_initialize",
         "skill_loaded": true,
         "skill_commit": "ffcdcc48b2d941f652192b83c2b1b932b2fcdfea",
-        "output_file": "forward-initialize.md",
-        "output_sha256": "4380e6ef7406fdf2bc489ed98a4c3d8cb507c57057da53b482494882f7a653ee",
+        "output_file": "forward-initialize.txt",
+        "output_sha256": "b3dd5649388c44e1c845787e86c22f7bb2f0a00702e14abd679abdd0f787f2f0",
         "pass": true,
         "project_audit": {
           "path": "<TEMP>/cvexp-forward-initialize",
@@ -84,8 +84,8 @@
         "agent_id": "/root/forward_template",
         "skill_loaded": true,
         "skill_commit": "ffcdcc48b2d941f652192b83c2b1b932b2fcdfea",
-        "output_file": "forward-template.md",
-        "output_sha256": "c191f0d3e8f0c2213a035c44ab232d59a068eda7ef294824e31bddd176705326",
+        "output_file": "forward-template.txt",
+        "output_sha256": "16249d1f64e0daeb3ae708a3d407f7119d38524561180fc29f98486ae0783ad6",
         "pass": true,
         "project_audit": {
           "path": "<TEMP>/cvexp-forward-template",
@@ -101,8 +101,8 @@
         "agent_id": "/root/forward_attempt",
         "skill_loaded": true,
         "skill_commit": "8f22d956148d15a421af76c2cbf995faf770ec78",
-        "output_file": "forward-attempt.md",
-        "output_sha256": "a8c040b612bb8c4331ea0ba8fbe1519ee0e328a3d3fa4becd4f0439fd93961ad",
+        "output_file": "forward-attempt.txt",
+        "output_sha256": "3992a4d2cdd212d9c177c2ee6b53720b69a635faffdee66c625fdccf620bb6a7",
         "pass": true,
         "project_audit": {
           "path": "<TEMP>/cvexp-forward-attempt-round2",

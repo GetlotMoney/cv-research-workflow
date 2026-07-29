@@ -22,8 +22,8 @@
     },
     {
       "path": "README.md",
-      "sha256": "38794b7c1a2394cd2271c29fa01a802ec58525e5352184164745090929c71dd0",
-      "size": 3199
+      "sha256": "7b5cab5953c8fa3e27ff330b1eac24a889eb204443c89e0bebbf1253cb76d603",
+      "size": 505
     },
     {
       "path": "cls/__init__.py",
