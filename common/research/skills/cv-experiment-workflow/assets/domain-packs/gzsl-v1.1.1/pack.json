@@ -1,0 +1,148 @@
+{
+  "files": [
+    {
+      "path": ".gitattributes",
+      "sha256": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da",
+      "size": 8
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "f5184463cd59dd9a04a49b2be35b30c123fc5123528f296a4b69d4611ed9665b",
+      "size": 182
+    },
+    {
+      "path": "DOWNLOADS.json",
+      "sha256": "aba85964761d0d615b149fd772500d59809eb2a4ff33e9f75d09f23ed212ce3d",
+      "size": 864
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "553b2d071494bae4655cada1464cc9b357fc2484c9d4f747c9c7039b41fdf59b",
+      "size": 1092
+    },
+    {
+      "path": "README.md",
+      "sha256": "431131fc21bd6dc288012e313457b94655730dc7c3ad79b9eb3abceafea9f3ba",
+      "size": 2536
+    },
+    {
+      "path": "configs/baseline.json",
+      "sha256": "1ccf71fdc23923edbb9ecf1ed6e0f4ec2edd479a083118df9b82e437955a6458",
+      "size": 112
+    },
+    {
+      "path": "configs/smoke.json",
+      "sha256": "0fc2e86826f4e979e72e5333a995a79843a128457b195e5cc35598e97dffe7a7",
+      "size": 112
+    },
+    {
+      "path": "contracts/metrics.v1.json",
+      "sha256": "496ac70ae4dfea17fa59e29b46f7dda051eac203b0514b89b03ad8732a6313a8",
+      "size": 633
+    },
+    {
+      "path": "domain-pack.json",
+      "sha256": "75322b82c3319035a69e887987c354d82a580e7a811d3aa618e4926b358582cc",
+      "size": 1337
+    },
+    {
+      "path": "gzsl/__init__.py",
+      "sha256": "fd2a7e27934ca086443bff528df49b0a68d9e1b2ecdb1060dca67d762813edba",
+      "size": 65
+    },
+    {
+      "path": "gzsl/contract.py",
+      "sha256": "46eeefc47ba9ee3e4fa0551f7aca3a4206f9fa63202d71d6c595606cfcf79c20",
+      "size": 19440
+    },
+    {
+      "path": "gzsl/cuda_probe.py",
+      "sha256": "f0d839fe9a3e639d1f111ddfa0c0bee00c77059642b18ecf407b7bb01501e9c6",
+      "size": 779
+    },
+    {
+      "path": "gzsl/data.py",
+      "sha256": "b728e04272ddaee4979889b373e59baa7e4bd88db009112e43f5e758080c4566",
+      "size": 13359
+    },
+    {
+      "path": "gzsl/dataset_manifest.py",
+      "sha256": "39571980940e0d408882e054082d87fa2b814290e027e12561eec50c9b73c2c8",
+      "size": 643
+    },
+    {
+      "path": "gzsl/evaluate.py",
+      "sha256": "d89589f55ca6a74c5828d369f1024ffa71474ec23deea5cebf380e883a24f73a",
+      "size": 1033
+    },
+    {
+      "path": "gzsl/infer.py",
+      "sha256": "88a1483cf9b33f0b50089eb0040e3ced3c7f58e88957eb34e42cedbc3a6a6a94",
+      "size": 987
+    },
+    {
+      "path": "gzsl/metrics.py",
+      "sha256": "921975e5c286b4c4f7b780267bd404e421a65fb24f92a13dba18f93f1cefd241",
+      "size": 2685
+    },
+    {
+      "path": "gzsl/model.py",
+      "sha256": "03584e6f6c4688cae5404e2c974618256f30126c28d446422b25ef01ab1858b3",
+      "size": 562
+    },
+    {
+      "path": "gzsl/runtime.py",
+      "sha256": "02d907f58567ca87b58f677ce7f7b154ec25e43f2d6dfce5c10136a3b49c2e81",
+      "size": 16811
+    },
+    {
+      "path": "gzsl/smoke.py",
+      "sha256": "b8b7f10a8d98d6c6978f671ac2ea75b4252972d4a0ac5045a4fbf4ea5a462ad1",
+      "size": 2128
+    },
+    {
+      "path": "gzsl/train.py",
+      "sha256": "1e5d8d8500ef458fd77159fe6b6fb62445898cdb09520e518d6a6cb73db21fd1",
+      "size": 3127
+    },
+    {
+      "path": "gzsl/validate_output.py",
+      "sha256": "ec59984303cd42e09d49c7b0580f20f44692fdeb2b3f3df1ab829d2946f6c36c",
+      "size": 10066
+    },
+    {
+      "path": "requirements/windows-gpu.lock.txt",
+      "sha256": "70f90b0a68263e1094b75c13c7f1978a29d577cd35f8a124596f291dc37caf0d",
+      "size": 115
+    },
+    {
+      "path": "tests/domain_pack/test_metric_contract.py",
+      "sha256": "52d22326c7a2fc843d58119b9a3533d1ec22e97ae43bec72e6785ccf3b6e24bd",
+      "size": 627
+    },
+    {
+      "path": "tests/domain_pack/test_synthetic_smoke.py",
+      "sha256": "3c59042bdbb1533dddef4ac46bf216c91482c36b3ab5299b5ada1db4276bec9b",
+      "size": 822
+    },
+    {
+      "path": "workflow_adapter.py",
+      "sha256": "f96eef1e269cd3fd22dd76b189795b7bc41dbc0f3b2586242320e74abee691f6",
+      "size": 30500
+    }
+  ],
+  "id": "gzsl",
+  "license": "MIT",
+  "primary_direction": "gzsl",
+  "schema": "cv-experiment-workflow.domain-pack.v1",
+  "source_references": [
+    {
+      "license": "MIT",
+      "name": "CADA-VAE-PyTorch",
+      "revision": "26f0085fe5e5911dc06fe767f90965c47885dee1",
+      "url": "https://github.com/edgarschnfld/CADA-VAE-PyTorch"
+    }
+  ],
+  "template_id": "PACK-GZSL",
+  "version": "1.1.1"
+}

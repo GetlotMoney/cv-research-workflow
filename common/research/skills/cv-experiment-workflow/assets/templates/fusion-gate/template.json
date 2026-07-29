@@ -1,0 +1,14 @@
+{
+  "schema": "cv-experiment-workflow.template.v1",
+  "family": "fusion-gate",
+  "attachment_points": ["fusion-input"],
+  "required_capabilities": [],
+  "interfaces": ["fusion-input"],
+  "dependencies": [],
+  "provenance_status": "verified",
+  "template_kind": "structural_scaffold",
+  "scientific_claim_scope": "none",
+  "papers": [],
+  "code_sources": [],
+  "canonical_sha256": "61ece3f73cf5be4feded4a825d65721a6388349f63b5018d7db50ce9fc88447d"
+}

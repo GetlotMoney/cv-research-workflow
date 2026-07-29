@@ -1,0 +1,57 @@
+> sanitized transcript（脱敏转录）：仅替换本地绝对路径；原平台任务记录仍是最终来源。
+
+`demo-user`，实验工作流已经在新论文项目中完成最小化初始化，并通过完整校验。
+
+项目位置：`<TEMP>/cvexp-forward-initialize`
+
+- 项目 ID：`371c2e25-4be5-49c3-af84-a9cabf69bb76`
+- 校验结果：`valid: true`
+- 当前对象数：Idea、Version、Trial、Attempt、Result 均为 `0`
+- 共生成 8 个必要文件及对应空目录，没有创建示例实验或冗余模板
+- 未修改工作流工具仓库
+- 未创建 GitHub 远端、未提交、未推送
+
+主要入口文件是 `<TEMP>/cvexp-forward-initialize/WORKFLOW.md` 和 `<TEMP>/cvexp-forward-initialize/AGENTS.md`，机器可读账本以 `<TEMP>/cvexp-forward-initialize/.experiment-workflow/project.json` 为准。
+
+以后你可以直接用自然语言，例如：
+
+- “记下一个想法：在小样本分类中加入类别原型一致性约束。”
+- “把刚才的想法整理成可证伪假设。”
+- “登记当前基础代码版本，然后为 IDEA-0001 建一个创新试验。”
+- “用 seed 42 规划这次消融实验。”
+- “记录 ATTEMPT-0001 的指标，并判断是否值得确认实验。”
+
+本地与 GitHub 建议这样放：
+
+- 工作流工具仓库继续独立保存，只作为可复用工具，不在里面写论文实验。
+- 每篇论文建立一个独立项目目录；源码、小型配置、`.experiment-workflow/`、`AGENTS.md`、`WORKFLOW.md` 放在项目内。
+- GitHub 建议一篇论文对应一个独立仓库，提交上述账本、规范、小型代码和配置。
+- `data/`、`runs/`、`checkpoints/`、论文 PDF、日志、模型权重不要提交 GitHub；初始化生成的 `<TEMP>/cvexp-forward-initialize/.gitignore` 已覆盖这些常见内容。
+- 外部基础代码通过仓库 URL、精确 40 位 commit 和相对代码路径登记，不必复制进账本仓库。
+- 当前临时目录适合验证；正式使用时，建议将同样的初始化操作放到稳定、会备份的论文项目目录中。
+
+实际执行的关键命令及结果如下：
+
+```powershell
+python '<SKILL_ROOT>/scripts/rw.py' init --help
+```
+
+```text
+usage: rw.py init [-h] --path PATH --name NAME
+```
+
+```powershell
+python '<SKILL_ROOT>/scripts/rw.py' init --path '<TEMP>/cvexp-forward-initialize' --name 'cvexp-forward-initialize'
+```
+
+```json
+{"schema":"cv-experiment-workflow.project.v1","project_id":"371c2e25-4be5-49c3-af84-a9cabf69bb76","name":"cvexp-forward-initialize"}
+```
+
+```powershell
+python '<SKILL_ROOT>/scripts/rw.py' validate --project '<TEMP>/cvexp-forward-initialize'
+```
+
+```json
+{"schema":"cv-experiment-workflow.validation.v1","valid":true,"trials":0,"code_assets":0,"frameworks":0,"attempts":0,"results":0,"versions":0,"draft_versions":0}
+```

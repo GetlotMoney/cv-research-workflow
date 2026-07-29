@@ -1,0 +1,119 @@
+{
+  "files": [
+    {
+      "path": ".gitattributes",
+      "sha256": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da",
+      "size": 8
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "50e68e538435c1a1211202887a01c452705ff6cc219a31e9e301c201eba54bb2",
+      "size": 108
+    },
+    {
+      "path": "DOWNLOADS.json",
+      "sha256": "0f2ccc89d21de017ea2b485a2a80e05e0df2d613053ec4cdf6e48571a597698c",
+      "size": 1430
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "553b2d071494bae4655cada1464cc9b357fc2484c9d4f747c9c7039b41fdf59b",
+      "size": 1092
+    },
+    {
+      "path": "README.md",
+      "sha256": "da8b7831f2a4a848880d8c6e889e64666d6b87a099d90ad49479bb227ae61326",
+      "size": 2688
+    },
+    {
+      "path": "configs/baseline.json",
+      "sha256": "4ad5f1e77898f1394a8da3a675e2b4b9f5a92085f46b0e9b1180986392c90a4b",
+      "size": 375
+    },
+    {
+      "path": "configs/smoke.json",
+      "sha256": "03750713c3a84aabfb3c40800fa297871532fc76b75e8408c94dff9e735be365",
+      "size": 195
+    },
+    {
+      "path": "contracts/metrics.v1.json",
+      "sha256": "d7c318c82f1cf60cf99cba606fd5464394ce0a3bd71a241cc0a78d669c02b3a9",
+      "size": 313
+    },
+    {
+      "path": "domain-pack.json",
+      "sha256": "c32eabc6926f31dc3242826b85b1ff022a41eb733ccc598a4192a4ea001a922e",
+      "size": 1345
+    },
+    {
+      "path": "requirements/windows-cpu.lock.txt",
+      "sha256": "bc09edbda563cc46a88377a07e0a388066b1e8d4bd2c379a57147ae7a3eeaf75",
+      "size": 117
+    },
+    {
+      "path": "src/__init__.py",
+      "sha256": "d7b53d816c8c3a5a0f3355f3fd2ad784d4116e4f8b6db89d8e5a92a2abc06311",
+      "size": 44
+    },
+    {
+      "path": "src/instseg/__init__.py",
+      "sha256": "c26b3b2350edab60d1028f1e5998dd1480850cce232d2ea999725f0ecfead943",
+      "size": 57
+    },
+    {
+      "path": "src/instseg/evaluate.py",
+      "sha256": "a67ae4ef70a5947e5e54b99db3e292ef2cc3d52f9f9be0cba329977eb5d80a61",
+      "size": 1074
+    },
+    {
+      "path": "src/instseg/infer.py",
+      "sha256": "6e9c76f523238465e7b4933b3d8f54177a6c94a8d855e7f9e3317768cfc818ff",
+      "size": 1072
+    },
+    {
+      "path": "src/instseg/runtime.py",
+      "sha256": "b9a4e98e41fa911952b1c83549c38432ef3f7e44f686a4b48cfc516b02934547",
+      "size": 73202
+    },
+    {
+      "path": "src/instseg/smoke.py",
+      "sha256": "af493d25ab4f6d22b24b3a531d33468124e9937e7d4572a3b95dbbb9d22498bc",
+      "size": 939
+    },
+    {
+      "path": "src/instseg/train.py",
+      "sha256": "07d5d2f87fcd96a58f40fc5fa0a2acc8be304e36954e9bd73fd8cae38f4bf8de",
+      "size": 1325
+    },
+    {
+      "path": "tests/domain_pack/test_synthetic_smoke.py",
+      "sha256": "59d4e0f4f8e49d09870d58d41f9cccd9235f494455f8d5c4f8826004927ed064",
+      "size": 689
+    },
+    {
+      "path": "workflow_adapter.py",
+      "sha256": "6b3531c65cc8ce4fda9cb4fd4eea646e1ec641bc8a494c5c8f28b333977b6d27",
+      "size": 25499
+    }
+  ],
+  "id": "instseg",
+  "license": "MIT",
+  "primary_direction": "instseg",
+  "schema": "cv-experiment-workflow.domain-pack.v1",
+  "source_references": [
+    {
+      "license": "BSD-3-Clause",
+      "name": "torchvision",
+      "revision": "78839c2b06c83c6cfb5c4da692ffb331bbd4c4cc",
+      "url": "https://github.com/pytorch/vision"
+    },
+    {
+      "license": "BSD-2-Clause",
+      "name": "pycocotools",
+      "revision": "ac87f5077ad6b8864c2dc5e93d14cae62d1db05a",
+      "url": "https://github.com/ppwwyyxx/cocoapi"
+    }
+  ],
+  "template_id": "PACK-INSTSEG",
+  "version": "1.0.0"
+}

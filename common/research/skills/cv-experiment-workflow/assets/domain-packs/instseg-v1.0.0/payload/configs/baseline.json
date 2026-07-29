@@ -1,0 +1,15 @@
+{
+  "schema": "pack-instseg.config.v1",
+  "seed": 23,
+  "device": "cuda",
+  "image_size": 32,
+  "num_queries": 8,
+  "epochs": 2,
+  "learning_rate": 0.001,
+  "dataset_identity_required": {
+    "dataset_id": "REPLACE_WITH_DATASET_ID",
+    "version": "REPLACE_WITH_VERSION",
+    "source_uri": "https://example.invalid/replace-with-public-dataset-page",
+    "split": "val"
+  }
+}

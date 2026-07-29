@@ -1,0 +1,14 @@
+{
+  "schema": "cv-experiment-workflow.template.v1",
+  "family": "feature-adapter",
+  "attachment_points": ["feature-output"],
+  "required_capabilities": [],
+  "interfaces": ["feature-output"],
+  "dependencies": [],
+  "provenance_status": "verified",
+  "template_kind": "structural_scaffold",
+  "scientific_claim_scope": "none",
+  "papers": [],
+  "code_sources": [],
+  "canonical_sha256": "294d39c7561d49d2b81333794459d58d0c93edd9a09c3efad49a33b51fe9e7f9"
+}

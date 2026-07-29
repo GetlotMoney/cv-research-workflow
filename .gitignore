@@ -1,0 +1,14 @@
+.runtime/
+envs/
+conda-pkgs/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+logs/
+config/environment.local.json
+config/environment.json
+config/active-workspace.json
+users/*
+!users/.gitkeep
+paperflow-data/runtime/

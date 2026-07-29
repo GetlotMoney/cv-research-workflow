@@ -1,0 +1,14 @@
+{
+  "schema": "pack-det.metrics-contract.v1",
+  "synthetic_debug_only": [
+    "debug_bbox_mean_iou",
+    "debug_precision_at_iou_0_5"
+  ],
+  "formal_coco_bbox": [
+    "coco_bbox_ap",
+    "coco_bbox_ap50",
+    "coco_bbox_ap75"
+  ],
+  "formal_backend": "pycocotools==2.0.11",
+  "fallback_allowed": false
+}

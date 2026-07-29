@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+.experiment-workflow/
+.experiment-workflow*.lock
+.worktrees/
+.cv-workflow-output/
+runs/
+outputs/
+data/
+datasets/
+*.npz
+*.pt
+*.pth
+*.ckpt

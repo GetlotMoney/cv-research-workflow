@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" href="data:,">
+<title>通用 CV 科研工作流</title>
+<style>
+:root{color-scheme:light;--bg:#f4f7f3;--card:#fff;--ink:#183127;--muted:#617168;--line:#d9e3dc;--green:#187653;--soft:#eaf5ef;--amber:#9a6518;--danger:#a43b3b;font-family:"Microsoft YaHei",system-ui,sans-serif}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(160deg,#edf4ef,#f9faf7 48%,#eef5f2);color:var(--ink)}
+header{background:#102b22;color:#f4fff9;padding:24px}.bar,main{max-width:1180px;margin:auto}.bar{display:flex;justify-content:space-between;align-items:center;gap:18px}.brand{font-size:22px;font-weight:750}.pill{padding:7px 12px;border:1px solid #5d8d79;border-radius:999px;color:#ccebdd;font-size:13px}
+main{padding:28px 20px 70px}.hero{display:grid;grid-template-columns:1.4fr .8fr;gap:18px}.panel{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:0 12px 35px #173c2920}.hero h1{font-size:clamp(30px,4vw,50px);margin:0 0 12px}.hint{color:var(--muted);line-height:1.7}.status{display:grid;gap:10px}.status-row{display:flex;justify-content:space-between;border-bottom:1px solid var(--line);padding:8px 0}.ok{color:var(--green)}.warn{color:var(--amber)}.error{color:var(--danger)}
+.directions{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.direction{border:1px solid var(--line);border-radius:12px;padding:14px}.direction.ready{border-color:#85bea5;background:var(--soft)}.direction b,.direction span{display:block}.direction span{color:var(--muted);margin-top:5px;font-size:13px}
+.steps{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}.wide{grid-column:1/-1}h2{margin:0 0 8px;font-size:20px}h3{margin:18px 0 8px;font-size:15px}.num{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:9px;background:var(--soft);color:var(--green);margin-right:8px}
+form{display:grid;gap:11px;margin-top:14px}label{display:grid;gap:5px;color:#3d5349;font-size:13px}input,select,textarea,button{font:inherit}input,select,textarea{width:100%;border:1px solid #cbd8d0;border-radius:9px;padding:10px;background:#fff;color:var(--ink)}textarea{min-height:76px;resize:vertical}.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}.components{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+button{border:0;border-radius:10px;padding:10px 14px;background:var(--green);color:white;cursor:pointer;font-weight:650}button.secondary{background:#e8efe9;color:#244b3b}button:disabled{opacity:.45;cursor:not-allowed}details{border:1px dashed var(--line);border-radius:10px;padding:10px}summary{cursor:pointer;color:var(--muted)}pre{white-space:pre-wrap;word-break:break-word;background:#12241d;color:#dbf3e6;border-radius:12px;padding:14px;min-height:72px;max-height:330px;overflow:auto;font-size:12px}
+@media(max-width:850px){.hero,.steps{grid-template-columns:1fr}.wide{grid-column:auto}.directions{grid-template-columns:1fr 1fr}.row,.components{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header><div class="bar"><div class="brand">通用 CV 科研工作流</div><span class="pill">Windows · GPU-only · GZSL ready</span></div></header>
+<main>
+  <section class="hero">
+    <article class="panel">
+      <h1>先把科研跑通，再由你个性化</h1>
+      <p class="hint">这是干净的通用模板，不包含任何个人实例、论文或私人材料。六个方向结构齐全，当前只有 GZSL（广义零样本学习）开放。</p>
+      <div id="directions" class="directions"></div>
+    </article>
+    <aside class="panel status">
+      <div class="status-row"><span>当前模式</span><b id="mode">读取中</b></div>
+      <div class="status-row"><span>个人实例</span><b id="workspace">读取中</b></div>
+      <div class="status-row"><span>固定环境</span><b id="env">读取中</b></div>
+      <div class="status-row"><span>显卡</span><b id="gpu">读取中</b></div>
+      <button class="secondary" id="refresh">刷新状态</button>
+    </aside>
+  </section>
+
+  <section class="steps">
+    <article class="panel">
+      <h2><span class="num">1</span>以后再创建个人实例</h2>
+      <p class="hint">通用模板不会替你个性化。准备好后，用项目内实例化工具建立个人目录，再显式激活。</p>
+      <pre>tools\instantiate-workspace.ps1 -DisplayName "你的工作流名称" -Slug "你的短名"
+tools\activate-workspace.ps1 -Slug "你的短名"</pre>
+    </article>
+
+    <article class="panel">
+      <h2><span class="num">2</span>创建方向仓库</h2>
+      <p class="hint">只有个人实例激活后可用；待做方向无法误选，也不会提前创建空仓库。</p>
+      <form id="repo-form">
+        <label>研究方向<select name="direction" id="direction-select"></select></label>
+        <label>仓库名<input name="name" placeholder="例如 my-gzsl-research" pattern="[a-z0-9-]+"></label>
+        <button data-needs-workspace>创建方向仓库</button>
+      </form>
+      <h3>当前仓库</h3>
+      <select id="repository"></select>
+      <button class="secondary" id="validate-repository" data-needs-workspace style="margin-top:10px">检查整个仓库</button>
+    </article>
+
+    <article class="panel wide">
+      <h2><span class="num">3</span>辅助接入外来 GZSL 框架</h2>
+      <p class="hint">先只读扫描，不修改原仓库；系统给出候选组件和通俗解释。你或 AI 修正后，才在个人 inbox 建立受控草稿。扫描结果不等于已经标准化，更不等于 S/U/H 等价通过；受控草稿不是操作系统沙箱，执行前仍要人工审读代码。</p>
+      <form id="scan-form">
+        <label>本机 Git 仓库路径<input name="source_repository" placeholder="D:\code\external-gzsl"></label>
+        <button>只读扫描</button>
+      </form>
+      <form id="draft-form">
+        <div class="row"><label>草稿短名<input name="slug" placeholder="external-gzsl"></label><label>原仓库<input name="source_repository" id="draft-source"></label></div>
+        <div id="component-fields" class="components"></div>
+        <button data-needs-workspace>复制到 inbox 并生成受控草稿</button>
+      </form>
+      <details><summary>高级设置：通过标准测试和等价检查后登记稳定 Framework</summary>
+        <form id="import-framework-form">
+          <label>标准化草稿仓库<input name="source_repository"></label>
+          <div class="row"><label>Framework 短名<input name="framework_slug"></label><label>版本<input name="version" value="1.0.0"></label></div>
+          <label>标题<input name="title"></label>
+          <div class="row"><label>数据身份<input name="dataset_id"></label><label>允许误差<input name="tolerance" type="number" step="any" value="0.000001"></label></div>
+          <div class="row"><label>原始结果文件<input name="original_result_path"></label><label>标准化结果文件<input name="standardized_result_path"></label></div>
+          <label>两名复核人（逗号分隔）<input name="checked_by"></label>
+          <label><input name="trusted_execution" type="checkbox">我已人工审读这份外来代码，并允许它在本机 GPU 环境运行</label>
+          <button data-needs-workspace>验证并登记稳定 Framework</button>
+        </form>
+      </details>
+    </article>
+
+    <article class="panel">
+      <h2><span class="num">4</span>建立 Idea</h2>
+      <form id="idea-form">
+        <label>标题<input name="title"></label>
+        <label>要解决的问题<textarea name="problem"></textarea></label>
+        <label>准备怎么解决<textarea name="mechanism"></textarea></label>
+        <label>怎样算失败<textarea name="hypothesis"></textarea></label>
+        <div class="row"><label>父 Idea（可空）<input name="parent"></label><label>来源说明<input name="source"></label></div>
+        <button data-needs-workspace>建立 Idea</button>
+      </form>
+    </article>
+
+    <article class="panel">
+      <h2><span class="num">5</span>建立四类实验</h2>
+      <p class="hint">复现、调参、消融分别编号；只有创新实验必须绑定 Idea。</p>
+      <form id="experiment-form">
+        <div class="row"><label>父 Framework<input name="framework" value="gzsl-base"></label><label>类型<select name="route"><option value="reproduction">复现 repro</option><option value="tuning">调参 tune</option><option value="ablation">消融 ablate</option><option value="innovation">创新 innov</option></select></label></div>
+        <div class="row"><label>短名<input name="slug"></label><label>Idea（仅创新填写）<input name="idea"></label></div>
+        <label>标题<input name="title"></label><label>说明<textarea name="summary"></textarea></label>
+        <details><summary>当前实验需要的比较信息</summary>
+          <div class="row"><label>来源/被关闭模块<input name="comparison_ref" placeholder="论文地址、代码 commit 或模块名"></label><label>对照 Run/来源结果<input name="baseline_run_ref" placeholder="创新填写：实验编号/Run 编号"></label></div>
+          <div class="row"><label>对照 H<input name="baseline" type="number" step="any" value="0"></label><label>允许误差/最小提升<input name="threshold" type="number" step="any" value="0"></label></div>
+          <label>允许修改的参数（逗号分隔，调参填写）<input name="allowed_changes" value="learning_rate"></label>
+          <label>关闭模块后会怎样（消融填写）<input name="disabled_behavior"></label>
+          <label>复现采用的代码标准<input name="code_standard" placeholder="例如：原论文官方 commit"></label>
+          <label>复现采用的数据标准<input name="data_standard" placeholder="例如：CUB 官方划分"></label>
+        </details>
+        <button data-needs-workspace>建立实验</button>
+      </form>
+    </article>
+
+    <article class="panel">
+      <h2><span class="num">6</span>分支与 Worktree</h2>
+      <p class="hint">每个实验使用独立分支和 Worktree；普通 Run 不打 Tag。</p>
+      <select id="experiment"></select>
+      <button id="prepare-worktree" data-needs-workspace style="margin-top:10px">建立实验 Worktree</button>
+      <label style="margin-top:10px">Worktree 路径<input id="worktree"></label>
+    </article>
+
+    <article class="panel">
+      <h2><span class="num">7</span>登记数据</h2>
+      <form id="dataset-form">
+        <label>本机 NPZ<input name="source_path"></label>
+        <div class="row"><label>数据短名<input name="dataset_slug"></label><label>数据 ID<input name="dataset_id"></label></div>
+        <div class="row"><label>版本<input name="version"></label><label>下载地址<input name="source_uri"></label></div>
+        <label>许可证<input name="license" placeholder="例如 Academic use only"></label>
+        <button data-needs-workspace>登记并冻结身份</button>
+      </form>
+    </article>
+
+    <article class="panel">
+      <h2><span class="num">8</span>GPU Run 与人工确认</h2>
+      <form id="run-form">
+        <div class="row"><label>用途<select name="purpose"><option value="debug">debug</option><option value="evidence">evidence</option></select></label><label>随机种子<input name="seed" type="number" value="31"></label></div>
+        <details><summary>高级设置：系统生成的运行配置</summary><label>配置 JSON<textarea name="config" id="config"></textarea></label></details>
+        <button data-needs-workspace>运行 train → evaluate → infer</button>
+      </form>
+      <form id="confirm-form">
+        <label>本地 Run 编号<input name="local_run_id"></label>
+        <label>确认理由<textarea name="reason">已核对 GPU、日志、S/U/H 和产物哈希。</textarea></label>
+        <div class="row"><label>提出人<input name="proposed_by"></label><label>复核人<input name="checked_by"></label></div>
+        <div class="row"><label>创新结果（仅创新选择）<select name="innovation_outcome"><option value="">非创新实验</option><option value="accepted">达到门槛，创新成功</option><option value="rejected">未达到或不接受</option></select></label><label>创新结论<input name="innovation_conclusion"></label></div>
+        <button data-needs-workspace>人工确认结果</button>
+      </form>
+    </article>
+
+    <article class="panel">
+      <h2><span class="num">9</span>创新晋级稳定 Framework</h2>
+      <p class="hint">仅创新实验可用；成功并提交后生成一个稳定 Tag 和一个 framework.html。</p>
+      <form id="promote-form">
+        <div class="row"><label>子 Framework<input name="child_slug"></label><label>版本<input name="version" value="1.0.0"></label></div>
+        <label>标题<input name="title"></label>
+        <details><summary>高级设置：框架图结构</summary><textarea name="framework_view">{"nodes":[{"id":"input","label":"视觉特征"},{"id":"output","label":"语义预测"}],"edges":[{"from":"input","to":"output"}]}</textarea></details>
+        <button data-needs-workspace>晋级并打 Tag</button>
+      </form>
+    </article>
+
+    <article class="panel">
+      <h2><span class="num">10</span>生成科研交付包</h2>
+      <p class="hint">只导出已人工确认的真实 evidence Run。本阶段不启动论文写作。</p>
+      <form id="package-form">
+        <div class="row"><label>Run 编号<input name="local_run_id"></label><label>确认人<input name="confirmed_by"></label></div>
+        <label>研究标题<input name="title"></label><label>研究领域<input name="research_area" value="广义零样本学习"></label>
+        <label>背景<textarea name="background"></textarea></label><label>问题<textarea name="problem"></textarea></label><label>目标<textarea name="objective"></textarea></label>
+        <label>允许写入交付包的结论<textarea name="claim"></textarea></label>
+        <button data-needs-workspace>生成科研交付包</button>
+      </form>
+    </article>
+  </section>
+
+  <section class="panel" style="margin-top:18px"><h2>本次操作结果</h2><pre id="output">等待操作。</pre></section>
+</main>
+<script>
+const token=new URLSearchParams(location.hash.slice(1)).get("token")||"";
+if(location.hash)history.replaceState(null,"",location.pathname+location.search);
+const out=document.querySelector("#output");let latest={workspace:false,worktree:"",config:null,scan:null,componentMap:null};
+const componentLabels={data:"数据",model:"模型",losses:"损失",trainer:"训练",evaluator:"评估",inferencer:"推理",metrics:"指标",configs:"配置"};
+async function api(path,data=null){out.textContent="正在处理…";const o={headers:{"X-CVWF-Token":token}};if(data){o.method="POST";o.headers["Content-Type"]="application/json";o.body=JSON.stringify(data)}const r=await fetch(path,o);const j=await r.json();if(!r.ok||j.status!=="ok")throw new Error(j.message||"操作失败");out.textContent=JSON.stringify(j.result,null,2);return j.result}
+function values(form){return Object.fromEntries(new FormData(form).entries())}
+function selected(){const v=document.querySelector("#repository").value;if(!v)throw new Error("请先选择仓库");return v}
+function components(){return Object.fromEntries(Object.keys(componentLabels).map(k=>[k,document.querySelector(`[name="component-${k}"]`).value.split(/\r?\n/).map(x=>x.trim()).filter(Boolean)]))}
+function routeContract(v){if(v.route==="tuning")return {allowed_changes:v.allowed_changes.split(",").map(x=>x.trim()).filter(Boolean)};const common={baseline:Number(v.baseline),primary_metric:"H"};if(v.route==="reproduction")return {...common,source_ref:v.comparison_ref,source_run_ref:v.baseline_run_ref,tolerance:Number(v.threshold),code_standard:{description:v.code_standard},data_standard:{description:v.data_standard}};if(v.route==="ablation")return {...common,module_ref:v.comparison_ref,baseline_run_ref:v.baseline_run_ref,disabled_behavior:v.disabled_behavior};return {...common,baseline_run_ref:v.baseline_run_ref,minimum_delta:Number(v.threshold)}}
+async function refresh(){try{const s=await api("/api/status");latest.workspace=s.mode==="workspace_active";document.querySelector("#mode").textContent=latest.workspace?"个人实例已激活":"纯通用模板";document.querySelector("#workspace").textContent=s.workspace?s.workspace.display_name:"尚未个性化";document.querySelector("#env").textContent=s.environment.environment_name;document.querySelector("#gpu").textContent=s.environment.gpu.name;document.querySelectorAll("[data-needs-workspace]").forEach(x=>x.disabled=!latest.workspace);document.querySelector("#directions").innerHTML=s.direction_catalog.directions.map(x=>`<div class="direction ${x.status}"><b>${x.label_zh}</b><span>${x.status==="ready"?"当前可用":"待做，不开放"}</span></div>`).join("");document.querySelector("#direction-select").innerHTML=s.direction_catalog.directions.map(x=>`<option value="${x.id}" ${x.status!=="ready"?"disabled":""}>${x.label_zh}（${x.status==="ready"?"可用":"待做"}）</option>`).join("");const repo=document.querySelector("#repository");const current=repo.value;repo.innerHTML=s.repositories.map(x=>`<option>${x.name}</option>`).join("");if(current)repo.value=current;await details()}catch(e){out.textContent=e.message}}
+async function details(){const repo=document.querySelector("#repository");if(!repo.value)return;const d=await api("/api/repositories/details",{repository:repo.value});document.querySelector("#experiment").innerHTML=d.experiments.map(x=>`<option value="${x.id}">${x.id} · ${x.title}</option>`).join("")}
+document.querySelector("#component-fields").innerHTML=Object.entries(componentLabels).map(([k,v])=>`<label>${v}文件（每行一个）<textarea name="component-${k}"></textarea></label>`).join("");
+document.querySelector("#refresh").onclick=refresh;document.querySelector("#repository").onchange=details;
+document.querySelector("#repo-form").onsubmit=async e=>{e.preventDefault();try{await api("/api/repositories/create",values(e.target));await refresh()}catch(x){out.textContent=x.message}};
+document.querySelector("#validate-repository").onclick=async()=>{try{await api("/api/repositories/validate",{repository:selected()})}catch(x){out.textContent=x.message}};
+document.querySelector("#scan-form").onsubmit=async e=>{e.preventDefault();try{const v=values(e.target);const r=await api("/api/frameworks/scan",v);latest.scan=r;document.querySelector("#draft-source").value=v.source_repository;Object.keys(componentLabels).forEach(k=>{const item=(r.components||{})[k]||(r.candidates||{})[k]||[];const c=Array.isArray(item)?item:(item.candidates||[]);document.querySelector(`[name="component-${k}"]`).value=c.map(x=>typeof x==="string"?x:(x.path||"")).filter(Boolean).join("\n")})}catch(x){out.textContent=x.message}};
+document.querySelector("#draft-form").onsubmit=async e=>{e.preventDefault();try{const v=values(e.target);const map=components();latest.componentMap=map;await api("/api/frameworks/prepare",{source_repository:v.source_repository,slug:v.slug,component_map:map})}catch(x){out.textContent=x.message}};
+document.querySelector("#import-framework-form").onsubmit=async e=>{e.preventDefault();try{const v=values(e.target);await api("/api/frameworks/import",{repository:selected(),source_repository:v.source_repository,framework_slug:v.framework_slug,title:v.title,version:v.version,component_map:latest.componentMap||components(),trusted_execution_acknowledged:e.target.elements.trusted_execution.checked,equivalence:{dataset_id:v.dataset_id,tolerance:Number(v.tolerance),original_result_path:v.original_result_path,standardized_result_path:v.standardized_result_path,checked_by:v.checked_by.split(",").map(x=>x.trim()).filter(Boolean)}});await details()}catch(x){out.textContent=x.message}};
+document.querySelector("#idea-form").onsubmit=async e=>{e.preventDefault();try{const v=values(e.target);await api("/api/ideas/create",{repository:selected(),title:v.title,problem:v.problem,mechanism:v.mechanism,falsifiable_hypothesis:v.hypothesis,parent_idea_ref:v.parent||null,source_notes:[{label:v.source||"用户提供",locator:"通用科研入口",claim:"Idea 来源说明"}]});await details()}catch(x){out.textContent=x.message}};
+document.querySelector("#experiment-form").onsubmit=async e=>{e.preventDefault();try{const v=values(e.target);await api("/api/experiments/create",{repository:selected(),framework_slug:v.framework,route:v.route,slug:v.slug,title:v.title,summary:v.summary,idea_ref:v.idea||null,route_contract:routeContract(v)});await details()}catch(x){out.textContent=x.message}};
+document.querySelector("#prepare-worktree").onclick=async()=>{try{const r=await api("/api/worktrees/prepare",{repository:selected(),experiment_id:document.querySelector("#experiment").value});latest.worktree=r.worktree;document.querySelector("#worktree").value=r.worktree}catch(x){out.textContent=x.message}};
+document.querySelector("#dataset-form").onsubmit=async e=>{e.preventDefault();try{const v=values(e.target);const r=await api("/api/datasets/register",{repository:selected(),experiment_id:document.querySelector("#experiment").value,worktree:latest.worktree,...v});latest.config=r.config;document.querySelector("#config").value=JSON.stringify(r.config,null,2)}catch(x){out.textContent=x.message}};
+document.querySelector("#run-form").onsubmit=async e=>{e.preventDefault();try{const v=values(e.target);await api("/api/runs/execute",{repository:selected(),experiment_id:document.querySelector("#experiment").value,worktree:latest.worktree,config:latest.config||JSON.parse(v.config),seed:Number(v.seed),purpose:v.purpose});await details()}catch(x){out.textContent=x.message}};
+document.querySelector("#confirm-form").onsubmit=async e=>{e.preventDefault();try{const v=values(e.target);await api("/api/runs/confirm",{repository:selected(),experiment_id:document.querySelector("#experiment").value,...v,innovation_accepted:v.innovation_outcome? v.innovation_outcome==="accepted":null,innovation_conclusion:v.innovation_conclusion||null})}catch(x){out.textContent=x.message}};
+document.querySelector("#promote-form").onsubmit=async e=>{e.preventDefault();try{const v=values(e.target);await api("/api/frameworks/promote",{repository:selected(),experiment_id:document.querySelector("#experiment").value,worktree:latest.worktree,child_slug:v.child_slug,title:v.title,version:v.version,framework_view:JSON.parse(v.framework_view)});await details()}catch(x){out.textContent=x.message}};
+document.querySelector("#package-form").onsubmit=async e=>{e.preventDefault();try{const v=values(e.target);const brief={title:v.title,research_area:v.research_area,background:v.background,problem:v.problem,objective:v.objective,research_questions:[v.problem],hypotheses:[{hypothesis_id:"H-01",statement:v.objective,falsification_criteria:"正式实验结果不支持该目标"}],scope:{included:["当前 GZSL 方法与已确认实验"],excluded:["未完成方向","未经核验的成绩"]},terminology:[{term_en:"generalized zero-shot learning",term_zh:"广义零样本学习",definition_zh:"同时在已见类和未见类上进行分类。"}],planned_contributions:[{contribution_id:"C-01",statement_zh:v.objective,provenance:"original",source_refs:[]}]};await api("/api/packages/export",{repository:selected(),experiment_id:document.querySelector("#experiment").value,local_run_id:v.local_run_id,research_brief:brief,claim_statement_zh:v.claim,confirmed_by:v.confirmed_by})}catch(x){out.textContent=x.message}};
+refresh();
+</script>
+</body>
+</html>

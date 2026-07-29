@@ -1,0 +1,20 @@
+# Python 缓存
+__pycache__/
+*.py[cod]
+
+# 虚拟环境
+.venv/
+venv/
+env/
+
+# 测试与分析缓存
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# 隔离开发 worktree
+.worktrees/
+
+# tests/ 下的实验证据需要纳入版本控制，不在此忽略。

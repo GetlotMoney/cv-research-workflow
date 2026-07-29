@@ -1,0 +1,17 @@
+{
+  "schema": "cv-experiment-workflow.download-manifest.v1",
+  "automatic_download": false,
+  "bundled_large_files": [],
+  "optional_resources": [
+    {
+      "name": "PyTorch 2.12.0 官方发布页",
+      "kind": "dependency_release_page",
+      "url": "https://github.com/pytorch/pytorch/releases/tag/v2.12.0",
+      "version": "2.12.0",
+      "revision": "refs/tags/v2.12.0",
+      "license": "BSD-3-Clause",
+      "license_url": "https://github.com/pytorch/pytorch/blob/v2.12.0/LICENSE",
+      "sha256": null
+    }
+  ]
+}

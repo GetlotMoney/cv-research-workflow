@@ -1,0 +1,133 @@
+{
+  "files": [
+    {
+      "path": ".gitattributes",
+      "sha256": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da",
+      "size": 8
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "c66821e2c4cc358594cacc40bc9675e9cdb5498962a2e65e4d2f0d863fd90adf",
+      "size": 115
+    },
+    {
+      "path": "DOWNLOADS.json",
+      "sha256": "87ff9c52506a793af001adccbc8c83bd08390f3c3239e7efb072a95d1c169dc2",
+      "size": 526
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "553b2d071494bae4655cada1464cc9b357fc2484c9d4f747c9c7039b41fdf59b",
+      "size": 1092
+    },
+    {
+      "path": "README.md",
+      "sha256": "7598809c9a68c08163eaad3cd4cc911da427c34143a301ce584e0b7eef4b2583",
+      "size": 3298
+    },
+    {
+      "path": "configs/baseline.json",
+      "sha256": "5d2b80c3819f3fe46b2d5ccb3e3264684fe492403b39bd67c7568804cac08409",
+      "size": 223
+    },
+    {
+      "path": "configs/smoke.json",
+      "sha256": "2bdd5da83c94b39fd316f0533667eaa94fe847dff3979b37f7a2fb139b85e392",
+      "size": 188
+    },
+    {
+      "path": "contracts/metrics.v1.json",
+      "sha256": "98d93195ee2dc2be3646f31543ea7939ea14d585449f4503351aa5b377cac098",
+      "size": 440
+    },
+    {
+      "path": "domain-pack.json",
+      "sha256": "f5fa3c15bc1050bff4e953933ac7dcc4016cf2bb20f4c7d2794d284b346bd75c",
+      "size": 1004
+    },
+    {
+      "path": "requirements/windows-cpu.lock.txt",
+      "sha256": "869f767633e137d0b45b829e9057a93f60041309f73b73f74ba5044c23484b75",
+      "size": 97
+    },
+    {
+      "path": "seg/__init__.py",
+      "sha256": "72cb4ce591b4c6fb06606fbaf5bac51cf7a869726117e05268081778c6b89400",
+      "size": 64
+    },
+    {
+      "path": "seg/contract.py",
+      "sha256": "0c568b5142a87b04add3f2d88c3072c099dcf41d46c8a418503b37b75376ba18",
+      "size": 23526
+    },
+    {
+      "path": "seg/data.py",
+      "sha256": "320f6376de935a37999f50e11b3a9aebd3064c08206287b8e9f5cb3521715179",
+      "size": 15491
+    },
+    {
+      "path": "seg/evaluate.py",
+      "sha256": "61c7656b0d89ecdd2a9776933d9f8cf0a3cbc312585720771217d77480dfd0e8",
+      "size": 1036
+    },
+    {
+      "path": "seg/infer.py",
+      "sha256": "fa2949f35f519406287b3fde9ed6e9581f610e6406f8d56ab709536e549b20cd",
+      "size": 1151
+    },
+    {
+      "path": "seg/metrics.py",
+      "sha256": "3989528baa1f44e7181c7577a1d8d5597fa02552e9fc93abe41002669bf663f3",
+      "size": 2688
+    },
+    {
+      "path": "seg/model.py",
+      "sha256": "f6400052bc64df91edbf5932f5db02477b8e7d0eade811b68fda8b13dfe878be",
+      "size": 890
+    },
+    {
+      "path": "seg/runtime.py",
+      "sha256": "7549cc7d7fe6e89e99362db066cceeb98012169ca337f531214b35165a2de0a7",
+      "size": 16693
+    },
+    {
+      "path": "seg/smoke.py",
+      "sha256": "dea5e518148992d9ba98d81eb36e698652d0590f1d060bd373b2ded498445543",
+      "size": 2420
+    },
+    {
+      "path": "seg/train.py",
+      "sha256": "0deb509f659af30002087d12f1e487aaf8aee53bb0eda8327e7929c34f909a02",
+      "size": 3425
+    },
+    {
+      "path": "tests/domain_pack/test_metric_contract.py",
+      "sha256": "99f969bad5c966580b509bf0bcf24f4324c1fdf0c2ae5b60f64a306b019d15b5",
+      "size": 788
+    },
+    {
+      "path": "tests/domain_pack/test_synthetic_smoke.py",
+      "sha256": "45d2cd476f957c58d424f9ca60d7cb618cd7da22b375b446c2b428ed2037f96e",
+      "size": 920
+    },
+    {
+      "path": "workflow_adapter.py",
+      "sha256": "fbd02280f6fd2c44f63f3209c707babf4b75cc03c27f996bc7ebf983412be361",
+      "size": 47147
+    }
+  ],
+  "id": "seg",
+  "license": "MIT",
+  "primary_direction": "seg",
+  "schema": "cv-experiment-workflow.domain-pack.v1",
+  "source_references": [
+    {
+      "license": "BSD-3-Clause",
+      "name": "torchvision",
+      "revision": "78839c2c243098a860dc8de1583c311ef2966c98",
+      "url": "https://github.com/pytorch/vision"
+    }
+  ],
+  "template_id": "PACK-SEG",
+  "version": "1.0.0"
+}

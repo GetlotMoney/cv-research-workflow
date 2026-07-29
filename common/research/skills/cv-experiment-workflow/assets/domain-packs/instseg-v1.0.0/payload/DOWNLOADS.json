@@ -1,0 +1,37 @@
+{
+  "schema": "cv-experiment-workflow.download-manifest.v1",
+  "automatic_download": false,
+  "bundled_large_files": [],
+  "optional_resources": [
+    {
+      "name": "COCO 2017 train/val 数据与标注",
+      "kind": "dataset_release_page",
+      "url": "https://cocodataset.org/#download",
+      "version": "2017",
+      "revision": "trainval2017",
+      "license": "CC-BY-4.0 (annotations); image licenses vary by Flickr source",
+      "license_url": "https://cocodataset.org/#termsofuse",
+      "sha256": null
+    },
+    {
+      "name": "torchvision 固定来源",
+      "kind": "dependency_release_page",
+      "url": "https://github.com/pytorch/vision/tree/78839c2b06c83c6cfb5c4da692ffb331bbd4c4cc",
+      "version": "commit",
+      "revision": "78839c2b06c83c6cfb5c4da692ffb331bbd4c4cc",
+      "license": "BSD-3-Clause",
+      "license_url": "https://github.com/pytorch/vision/blob/78839c2b06c83c6cfb5c4da692ffb331bbd4c4cc/LICENSE",
+      "sha256": null
+    },
+    {
+      "name": "pycocotools 固定来源",
+      "kind": "dependency_release_page",
+      "url": "https://github.com/ppwwyyxx/cocoapi/tree/ac87f5077ad6b8864c2dc5e93d14cae62d1db05a",
+      "version": "commit",
+      "revision": "ac87f5077ad6b8864c2dc5e93d14cae62d1db05a",
+      "license": "BSD-2-Clause",
+      "license_url": "https://github.com/ppwwyyxx/cocoapi/blob/ac87f5077ad6b8864c2dc5e93d14cae62d1db05a/license.txt",
+      "sha256": null
+    }
+  ]
+}

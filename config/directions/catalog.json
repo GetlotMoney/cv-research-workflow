@@ -1,0 +1,48 @@
+{
+  "schema": "cvwf.direction-catalog.v1",
+  "version": "DATA-DIRECTIONS-V1.0.0",
+  "directions": [
+    {
+      "id": "image_classification",
+      "slug": "cls",
+      "label_zh": "图像分类",
+      "status": "pending",
+      "repository_factory": null
+    },
+    {
+      "id": "object_detection",
+      "slug": "det",
+      "label_zh": "目标检测",
+      "status": "pending",
+      "repository_factory": null
+    },
+    {
+      "id": "instance_segmentation",
+      "slug": "instseg",
+      "label_zh": "实例分割",
+      "status": "pending",
+      "repository_factory": null
+    },
+    {
+      "id": "semantic_segmentation",
+      "slug": "seg",
+      "label_zh": "语义分割",
+      "status": "pending",
+      "repository_factory": null
+    },
+    {
+      "id": "super_resolution",
+      "slug": "sr",
+      "label_zh": "超分辨率",
+      "status": "pending",
+      "repository_factory": null
+    },
+    {
+      "id": "gzsl",
+      "slug": "gzsl",
+      "label_zh": "广义零样本学习",
+      "status": "ready",
+      "repository_factory": "create_gzsl_repository"
+    }
+  ]
+}

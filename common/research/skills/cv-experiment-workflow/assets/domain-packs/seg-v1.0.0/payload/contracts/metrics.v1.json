@@ -1,0 +1,20 @@
+{
+  "schema": "pack-seg.metrics.v1",
+  "formal_metrics": [
+    {
+      "name": "mean_iou",
+      "range": [0.0, 1.0],
+      "higher_is_better": true,
+      "aggregation": "whole_dataset_confusion_matrix",
+      "ignore_index": 255,
+      "zero_union": "null_and_omitted_from_mean",
+      "one_sided_union": "included"
+    }
+  ],
+  "synthetic_debug_metrics": [
+    {
+      "name": "debug_mean_iou",
+      "paper_eligible": false
+    }
+  ]
+}

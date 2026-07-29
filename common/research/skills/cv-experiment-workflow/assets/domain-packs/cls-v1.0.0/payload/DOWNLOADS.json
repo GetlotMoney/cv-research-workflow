@@ -1,0 +1,27 @@
+{
+  "schema": "cv-experiment-workflow.download-manifest.v1",
+  "automatic_download": false,
+  "bundled_large_files": [],
+  "optional_resources": [
+    {
+      "name": "PyTorch 2.12.0 固定发布页",
+      "kind": "dependency_release_page",
+      "url": "https://github.com/pytorch/pytorch/tree/v2.12.0",
+      "version": "2.12.0",
+      "revision": "v2.12.0",
+      "license": "BSD-3-Clause",
+      "license_url": "https://github.com/pytorch/pytorch/blob/v2.12.0/LICENSE",
+      "sha256": null
+    },
+    {
+      "name": "CIFAR-10 官方页面",
+      "kind": "dataset_release_page",
+      "url": "https://www.cs.toronto.edu/~kriz/cifar.html",
+      "version": "CIFAR-10",
+      "revision": "cifar-10-python.tar.gz",
+      "license": "官方页面未声明统一许可证，使用前需核验条款",
+      "license_url": "https://www.cs.toronto.edu/~kriz/cifar.html",
+      "sha256": null
+    }
+  ]
+}

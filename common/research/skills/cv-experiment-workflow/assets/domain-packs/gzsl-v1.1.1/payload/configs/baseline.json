@@ -1,0 +1,7 @@
+{
+  "schema": "pack-gzsl.config.v1",
+  "seed": 7,
+  "device": "cuda",
+  "epochs": 30,
+  "learning_rate": 0.01
+}

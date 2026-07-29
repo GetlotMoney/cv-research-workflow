@@ -1,0 +1,46 @@
+{
+  "schema": "cv-experiment-workflow.runnable-domain-pack.v1",
+  "id": "det",
+  "version": "1.0.0",
+  "template_id": "PACK-DET",
+  "primary_direction": "det",
+  "license": "MIT",
+  "source_references": [
+    {
+      "name": "torchvision",
+      "url": "https://github.com/pytorch/vision",
+      "revision": "78839c2b06c83c6cfb5c4da692ffb331bbd4c4cc",
+      "license": "BSD-3-Clause"
+    },
+    {
+      "name": "pycocotools",
+      "url": "https://github.com/ppwwyyxx/cocoapi",
+      "revision": "ac87f5077ad6b8864c2dc5e93d14cae62d1db05a",
+      "license": "BSD-2-Clause"
+    }
+  ],
+  "task": "object_detection",
+  "commands": ["train", "evaluate", "infer", "synthetic_smoke"],
+  "entrypoints": {
+    "train": "python -m src.det.train",
+    "evaluate": "python -m src.det.evaluate",
+    "infer": "python -m src.det.infer",
+    "synthetic_smoke": "python -m src.det.smoke"
+  },
+  "dataset": {
+    "format": "strict_coco_bbox",
+    "large_files_bundled": false,
+    "automatic_download": false
+  },
+  "formal_evaluator": {
+    "package": "pycocotools",
+    "exact_version": "2.0.11",
+    "iou_type": "bbox",
+    "fallback": false
+  },
+  "synthetic_smoke": {
+    "run_kind": "synthetic_debug_only",
+    "paper_eligible": false,
+    "device": "cpu"
+  }
+}

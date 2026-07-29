@@ -1,0 +1,18 @@
+{
+  "schema": "cvwf.research-environment.v2",
+  "platform": "windows_only",
+  "execution_policy": "gpu_only",
+  "cpu_fallback": false,
+  "manager": "conda_named_environment",
+  "environment_name": "dvsr_gpu",
+  "environment_prefix": "<absolute-path-to-dvsr_gpu>",
+  "python_executable": "<absolute-path-to-dvsr_gpu-python.exe>",
+  "python_version": "<detected-by-installer>",
+  "pytorch_version": "<detected-by-installer>",
+  "cuda_runtime": "<detected-by-installer>",
+  "gpu": {
+    "name": "<detected-by-installer>"
+  },
+  "status": "unconfigured",
+  "verification_command": "tools\\core-env.ps1 verify-gpu"
+}

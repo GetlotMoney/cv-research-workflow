@@ -1,0 +1,12 @@
+[project]
+name = "cv-experiment-workflow"
+version = "1.5.0"
+description = "可复现的计算机视觉实验工作流"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "tomli>=1.1.0; python_version < '3.11'",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

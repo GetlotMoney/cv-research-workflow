@@ -1,0 +1,11 @@
+{
+  "schema": "pack-cls.config.v1",
+  "seed": 7,
+  "device": "cpu",
+  "image_size": 12,
+  "num_classes": 3,
+  "samples_per_class": 4,
+  "epochs": 2,
+  "batch_size": 6,
+  "learning_rate": 0.05
+}

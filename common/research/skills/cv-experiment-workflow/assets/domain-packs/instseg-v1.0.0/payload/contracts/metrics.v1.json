@@ -1,0 +1,14 @@
+{
+  "schema": "pack-instseg.metrics-contract.v1",
+  "synthetic_debug_only": [
+    "debug_mask_mean_iou",
+    "debug_precision_at_mask_iou_0_5"
+  ],
+  "formal_coco_segm": [
+    "coco_segm_ap",
+    "coco_segm_ap50",
+    "coco_segm_ap75"
+  ],
+  "formal_backend": "pycocotools==2.0.11",
+  "fallback_allowed": false
+}

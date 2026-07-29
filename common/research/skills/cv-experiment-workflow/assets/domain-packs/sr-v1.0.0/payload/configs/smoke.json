@@ -1,0 +1,11 @@
+{
+  "schema": "pack-sr.config.v1",
+  "seed": 7,
+  "device": "cpu",
+  "scale": 2,
+  "sample_count": 3,
+  "lr_height": 4,
+  "lr_width": 5,
+  "epochs": 1,
+  "learning_rate": 0.01
+}

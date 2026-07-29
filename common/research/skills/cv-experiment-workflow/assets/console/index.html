@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="CV 实验工作流与 PaperFlow 的本机统一入口"
+    >
+    <title>科研控制台 · 开始与设置</title>
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#workspace">跳到主要内容</a>
+
+    <div class="app-shell" id="app-root" aria-busy="true">
+      <header class="masthead">
+        <div class="brand-lockup">
+          <div class="instrument-mark" aria-hidden="true">
+            <span>CV</span>
+            <span>LAB</span>
+          </div>
+          <div>
+            <p class="eyebrow">LOCAL RESEARCH CONSOLE · CONTROLLED ACTIONS</p>
+            <h1>科研航图</h1>
+            <p class="brand-note">把开始条件、真实关系和执行门槛放在一张工作台上。</p>
+          </div>
+        </div>
+        <div class="mode-stamp" aria-label="当前提供本机受控操作">
+          <span class="status-lamp" aria-hidden="true"></span>
+          <span>本机受控操作</span>
+          <small>固定动作</small>
+        </div>
+      </header>
+
+      <nav class="view-nav" aria-label="控制台页面">
+        <a href="#start" data-nav="view">
+          <span class="nav-index">01</span>
+          <span>开始与设置</span>
+        </a>
+        <a href="#relationships" data-nav="view">
+          <span class="nav-index">02</span>
+          <span>关系图</span>
+        </a>
+        <a href="#confirm" data-nav="view">
+          <span class="nav-index">03</span>
+          <span>执行确认</span>
+        </a>
+      </nav>
+
+      <div class="system-messages" aria-atomic="true">
+        <div id="page-status" class="page-status" role="status" aria-live="polite">
+          正在读取本地项目状态……
+        </div>
+        <div
+          id="page-error"
+          class="page-error"
+          role="alert"
+          aria-live="assertive"
+          hidden
+        ></div>
+      </div>
+
+      <main id="workspace" tabindex="-1">
+        <section
+          id="start"
+          class="workspace-view"
+          data-view="view"
+          aria-labelledby="start-title"
+        >
+          <header class="section-heading">
+            <div>
+              <p class="section-index">PAGE 01 / INTAKE</p>
+              <h2 id="start-title">开始与设置</h2>
+            </div>
+            <p>
+              先说清这次要做什么、基于什么、最多花多少算力。
+              信息没齐时，只告诉你缺什么。
+            </p>
+          </header>
+
+          <div class="start-layout">
+            <aside class="project-strip" aria-labelledby="project-strip-title">
+              <div class="panel-heading">
+                <p class="kicker">LIVE SNAPSHOT</p>
+                <h3 id="project-strip-title">当前项目</h3>
+              </div>
+              <dl class="fact-list">
+                <div>
+                  <dt>项目</dt>
+                  <dd id="project-name">读取中</dd>
+                </div>
+                <div>
+                  <dt>工作流版本</dt>
+                  <dd id="workflow-version">读取中</dd>
+                </div>
+                <div>
+                  <dt>版本可信度</dt>
+                  <dd id="workflow-trust">读取中</dd>
+                </div>
+                <div>
+                  <dt>代码适配</dt>
+                  <dd id="adapter-status">读取中</dd>
+                </div>
+              </dl>
+              <div class="count-matrix" aria-label="项目对象数量">
+                <div><strong id="count-sources">—</strong><span>来源</span></div>
+                <div><strong id="count-tasks">—</strong><span>任务</span></div>
+                <div><strong id="count-runs">—</strong><span>运行</span></div>
+                <div><strong id="count-evidence">—</strong><span>证据</span></div>
+              </div>
+              <p class="micro-note">
+                数字来自本次启动时读取的真实账本，不会扫描或改写其他仓库。
+              </p>
+              <div class="project-instances" aria-labelledby="project-instances-title">
+                <strong id="project-instances-title">同一实例根中的项目</strong>
+                <p id="project-instances">读取中</p>
+              </div>
+            </aside>
+
+            <div class="intake-panel">
+              <div class="panel-heading">
+                <p class="kicker">START CHECK</p>
+                <h3>这次准备做什么？</h3>
+              </div>
+              <section class="unified-entry" aria-labelledby="unified-entry-title">
+                <p class="kicker">UI-CONSOLE-V2.0.0 / UNIFIED ENTRY</p>
+                <h4 id="unified-entry-title">从项目到 PaperFlow</h4>
+                <p>Project → Research Brief → Idea → Codebase → Task → Run → Evidence → Research Package → PaperFlow</p>
+                <div class="direction-list" aria-label="六个科研方向">
+                  <span>DET</span><span>CLS</span><span>SEG</span><span>INSTSEG</span><span>SR</span><span>GZSL</span>
+                </div>
+                <p class="safety-note">这里调用工作流已有的固定动作。它可以创建记录并运行你明确选择的实验，但不会提供任意命令，也不会删除、push 或发布。</p>
+                <div class="unified-actions">
+                  <span>新建 / 打开项目</span><span>保存 Research Brief</span><span>创建 Codebase</span><span>登记来源与 Idea</span><span>创建 Task / Run</span><span>冻结交付包并交给 PaperFlow</span>
+                </div>
+                <form id="write-action-form" data-endpoint="/api/actions" novalidate>
+                  <label for="write-action">选择固定动作</label>
+                  <select id="write-action" name="action">
+                    <option value="create_project">新建科研项目</option>
+                    <option value="open_project">打开已有科研项目</option>
+                    <option value="save_research_brief">保存 Research Brief</option>
+                    <option value="create_domain_repo">从六方向模板创建仓库</option>
+                    <option value="register_source">登记论文或代码来源</option>
+                    <option value="save_idea">保存 Idea</option>
+                    <option value="revise_idea">创建 Idea 修订</option>
+                    <option value="select_codebase">登记/选择 Codebase</option>
+                    <option value="create_task">创建 Task</option>
+                    <option value="run_task_debug">运行 debug Run</option>
+                    <option value="run_task_evidence">运行正式 evidence Run</option>
+                    <option value="seal_run_outputs">封存正式 Run 输出</option>
+                    <option value="confirm_run_evidence">人工确认正式证据</option>
+                    <option value="freeze_research_package">冻结 Research Package</option>
+                  </select>
+                  <label for="write-action-data">结构化数据（JSON）</label>
+                  <textarea id="write-action-data" name="data" rows="5">{}</textarea>
+                  <button id="write-action-submit" class="unified-action" type="submit" disabled>执行固定动作</button>
+                </form>
+                <div id="write-action-result" class="micro-note" aria-live="polite">先读取本地状态以取得本次启动令牌。</div>
+                <a
+                  id="paperflow-link"
+                  class="paperflow-link"
+                  href="#"
+                  target="_blank"
+                  rel="noreferrer"
+                  hidden
+                >打开 PaperFlow，手动选择刚导出的交付包</a>
+              </section>
+              <form id="intake-form" data-endpoint="/api/state" novalidate>
+                <div class="field field-intent">
+                  <label for="intent">启动方式</label>
+                  <select
+                    id="intent"
+                    name="intent"
+                    aria-describedby="intent-help"
+                  >
+                    <option value="status">只查看现在的状态</option>
+                    <option value="continue">继续一个未完成任务</option>
+                    <option value="tune">调参数</option>
+                    <option value="ablation">做消融实验</option>
+                    <option value="reproduction">复现实验</option>
+                    <option value="innovation">验证新想法</option>
+                  </select>
+                  <p id="intent-help" class="field-help">
+                    选择后，下面只显示这条路线一定要填的内容。
+                  </p>
+                </div>
+
+                <div id="route-help" class="route-help"></div>
+                <div
+                  id="provided-fields"
+                  class="provided-fields"
+                  aria-label="需要提供的信息"
+                ></div>
+
+                <div class="form-actions">
+                  <button id="preview-action" class="primary-button" type="submit">
+                    检查必需信息
+                  </button>
+                  <span>只刷新预览，不创建任何实验。</span>
+                </div>
+              </form>
+
+              <div class="intake-result" aria-labelledby="required-title">
+                <div>
+                  <p class="kicker">REQUIRED INPUTS</p>
+                  <h3 id="required-title">还需要什么</h3>
+                  <div id="required-fields"></div>
+                </div>
+                <div id="intake-summary" class="intake-summary">
+                  等待项目状态。
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section
+          id="relationships"
+          class="workspace-view"
+          data-view="view"
+          aria-labelledby="relationships-title"
+          hidden
+        >
+          <header class="section-heading">
+            <div>
+              <p class="section-index">PAGE 02 / MAP</p>
+              <h2 id="relationships-title">关系图</h2>
+            </div>
+            <p>
+              每个点都来自项目账本；连线表示它们怎样一步步变成任务、运行和证据。
+            </p>
+          </header>
+
+          <div class="graph-console">
+            <div class="graph-toolbar">
+              <div>
+                <p class="kicker">TRACE MAP</p>
+                <h3>研究链路</h3>
+              </div>
+              <div class="graph-counts" aria-live="polite">
+                <span><strong id="graph-node-count">0</strong> 个对象</span>
+                <span><strong id="graph-edge-count">0</strong> 条关系</span>
+              </div>
+            </div>
+
+            <div class="graph-legend" aria-label="关系图图例">
+              <span data-kind="system">系统</span>
+              <span data-kind="research">研究素材</span>
+              <span data-kind="task">任务</span>
+              <span data-kind="run">运行</span>
+              <span data-kind="evidence">证据</span>
+            </div>
+
+            <div class="graph-frame">
+              <svg
+                id="graph-canvas"
+                role="img"
+                aria-label="项目对象与实验关系图"
+                preserveAspectRatio="xMidYMin meet"
+              ></svg>
+              <div id="graph-empty" class="empty-state" hidden>
+                <span aria-hidden="true">∅</span>
+                <strong>还没有可画出的关系</strong>
+                <p>项目修好或账本出现记录后，这里会自动显示真实关系。</p>
+              </div>
+            </div>
+
+            <details class="graph-fallback" open>
+              <summary>用文字查看全部对象</summary>
+              <h4 id="graph-node-list-title">对象</h4>
+              <ul
+                id="graph-list"
+                role="list"
+                aria-labelledby="graph-node-list-title"
+              ></ul>
+              <h4 id="graph-edge-list-title">关系</h4>
+              <ul
+                id="graph-edge-list"
+                role="list"
+                aria-labelledby="graph-edge-list-title"
+              ></ul>
+            </details>
+          </div>
+        </section>
+
+        <section
+          id="confirm"
+          class="workspace-view"
+          data-view="view"
+          aria-labelledby="confirm-title"
+          hidden
+        >
+          <header class="section-heading">
+            <div>
+              <p class="section-index">PAGE 03 / GATE</p>
+              <h2 id="confirm-title">执行确认</h2>
+            </div>
+            <p>
+              把哪些条件通过、哪些条件挡住了下一步说清楚，再决定是否进入后续阶段。
+            </p>
+          </header>
+
+          <div class="confirm-layout">
+            <div class="condition-panel">
+              <div class="panel-heading">
+                <p class="kicker">PRE-FLIGHT CHECK</p>
+                <h3>开始前的六项检查</h3>
+              </div>
+              <ol id="condition-list" class="condition-list"></ol>
+            </div>
+
+            <aside class="execution-panel" aria-labelledby="execution-title">
+              <p class="kicker">EXECUTION LOCK</p>
+               <h3 id="execution-title">按固定动作执行</h3>
+              <div id="blocked-summary" class="blocked-summary">
+                正在读取拦截原因……
+              </div>
+              <div class="preview-ticket">
+                <span>当前路线</span>
+                <strong id="preview-intent">状态查看</strong>
+                <small id="preview-next-step">等待项目状态</small>
+              </div>
+              <button
+                id="execution-action"
+                class="execution-button"
+                type="button"
+              >
+                返回固定动作区
+              </button>
+               <p class="safety-note">
+                 只有上方列出的固定动作可写入；没有任意命令入口，也不会自动 push 或发布。
+               </p>
+            </aside>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer-line">
+        <span>CV EXPERIMENT WORKFLOW</span>
+        <span>LOCALHOST / FIXED ACTIONS / EVIDENCE FIRST</span>
+      </footer>
+    </div>
+
+    <script src="/app.js" defer></script>
+  </body>
+</html>

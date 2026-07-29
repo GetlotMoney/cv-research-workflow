@@ -1,0 +1,40 @@
+{
+  "schema": "cv-experiment-workflow.runnable-domain-pack.v1",
+  "id": "cls",
+  "version": "1.0.0",
+  "template_id": "PACK-CLS",
+  "primary_direction": "cls",
+  "license": "MIT",
+  "source_references": [
+    {
+      "name": "torchvision",
+      "url": "https://github.com/pytorch/vision",
+      "revision": "78839c2b06c83c6cfb5c4da692ffb331bbd4c4cc",
+      "license": "BSD-3-Clause"
+    }
+  ],
+  "task": "single_label_image_classification",
+  "commands": [
+    "train",
+    "evaluate",
+    "infer",
+    "synthetic_smoke"
+  ],
+  "entrypoints": {
+    "train": "python -m cls.train",
+    "evaluate": "python -m cls.evaluate",
+    "infer": "python -m cls.infer",
+    "synthetic_smoke": "python -m cls.smoke"
+  },
+  "dataset": {
+    "format": "imagefolder",
+    "large_files_bundled": false,
+    "automatic_download": false
+  },
+  "metrics_contract": "contracts/metrics.v1.json",
+  "synthetic_smoke": {
+    "run_kind": "synthetic_debug_only",
+    "paper_eligible": false,
+    "device": "cpu"
+  }
+}

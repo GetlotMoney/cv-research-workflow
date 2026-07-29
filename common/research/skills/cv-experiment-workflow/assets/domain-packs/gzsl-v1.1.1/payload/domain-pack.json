@@ -1,0 +1,53 @@
+{
+  "schema": "cv-experiment-workflow.runnable-domain-pack.v1",
+  "id": "gzsl",
+  "version": "1.1.1",
+  "template_id": "PACK-GZSL",
+  "primary_direction": "gzsl",
+  "license": "MIT",
+  "source_references": [
+    {
+      "name": "CADA-VAE-PyTorch",
+      "url": "https://github.com/edgarschnfld/CADA-VAE-PyTorch",
+      "revision": "26f0085fe5e5911dc06fe767f90965c47885dee1",
+      "license": "MIT"
+    }
+  ],
+  "task": "generalized_zero_shot_learning",
+  "commands": [
+    "train",
+    "evaluate",
+    "infer",
+    "synthetic_smoke"
+  ],
+  "entrypoints": {
+    "train": "python -m gzsl.train",
+    "evaluate": "python -m gzsl.evaluate",
+    "infer": "python -m gzsl.infer",
+    "synthetic_smoke": "python -m gzsl.smoke"
+  },
+  "dataset": {
+    "format": "strict_npz",
+    "npz_keys": [
+      "features",
+      "labels",
+      "attributes",
+      "class_ids",
+      "seen_class_ids",
+      "unseen_class_ids",
+      "train_indices",
+      "test_seen_indices",
+      "test_unseen_indices"
+    ],
+    "attribute_row_mapping": "class_ids[index] maps to attributes[index]",
+    "large_files_bundled": false,
+    "automatic_download": false
+  },
+  "metrics_contract": "contracts/metrics.v1.json",
+  "synthetic_smoke": {
+    "run_kind": "synthetic_debug_only",
+    "paper_eligible": false,
+    "device": "cuda",
+    "cpu_fallback": false
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "schema_version": "skill-scenario.v1",
+  "cases": [
+    {
+      "id": "initialize-project",
+      "baseline_agent_id": "/root/red_initialize",
+      "prompt": "我刚克隆了一个科研工作流工具。请立刻在我的新论文项目中初始化实验工作流，尽量少建文件，不要问问题，并告诉我本地与 GitHub 应该怎么放。以后我要用自然语言记录想法和实验。",
+      "baseline_output_file": "red-initialize.md",
+      "failures": [
+        {
+          "summary": "把所有事实压进单一 LAB_NOTEBOOK，缺少稳定实验对象",
+          "evidence_snippets": ["LAB_NOTEBOOK.md", "项目内只新增 3 个工作流文件"]
+        },
+        {
+          "summary": "重新使用过宽的 research-workflow 命名",
+          "evidence_snippets": ["D:\\tools\\research-workflow\\"]
+        },
+        {
+          "summary": "把论文正文目录放入默认 Git 项目边界",
+          "evidence_snippets": ["├─ paper/"]
+        }
+      ],
+      "forward_agent_id": "/root/forward_initialize",
+      "forward_round": 1,
+      "forward_skill_commit": "ffcdcc48b2d941f652192b83c2b1b932b2fcdfea",
+      "forward_output_file": "forward-initialize.md",
+      "forward_output_sha256": "4380e6ef7406fdf2bc489ed98a4c3d8cb507c57057da53b482494882f7a653ee",
+      "forward_pass_evidence": ["工作流工具仓库继续独立保存", "校验结果：`valid: true`"],
+      "forward_pass": true
+    },
+    {
+      "id": "paper-idea-to-template",
+      "baseline_agent_id": "/root/red_template",
+      "prompt": "马上把这个论文想法写成代码实验。不要在旧 Trial 上改，给我找一个合适代码模板；要写清论文和官方代码从哪里来，但尽量少写文档。我的基础模型在另一个 Git 仓库。",
+      "baseline_output_file": "red-template.md",
+      "failures": [
+        {
+          "summary": "为单个想法另造 overlay 仓库，没有落入统一项目账本",
+          "evidence_snippets": ["实验覆盖层（overlay）", "gzsl-idea-exp/"]
+        },
+        {
+          "summary": "以 experiment.yaml 和自动 manifest 替代稳定对象 ID",
+          "evidence_snippets": ["experiment.yaml", "每次运行的自动 manifest"]
+        },
+        {
+          "summary": "模板选择依赖临场判断而不是可复核模板 manifest",
+          "evidence_snippets": ["优先采用基础模型仓库原生的训练、配置和数据接口"]
+        },
+        {
+          "summary": "把 GZSL 指标与数据语义硬编码为通用流程",
+          "evidence_snippets": ["GZSL seen/unseen", "调和平均值 H"]
+        }
+      ],
+      "forward_agent_id": "/root/forward_template",
+      "forward_round": 1,
+      "forward_skill_commit": "ffcdcc48b2d941f652192b83c2b1b932b2fcdfea",
+      "forward_output_file": "forward-template.md",
+      "forward_output_sha256": "c191f0d3e8f0c2213a035c44ab232d59a068eda7ef294824e31bddd176705326",
+      "forward_pass_evidence": ["没有伪造论文想法、来源或基础模型信息", "`status: unbound`"],
+      "forward_pass": true
+    },
+    {
+      "id": "attempt-confirm-promotion",
+      "baseline_agent_id": "/root/red_attempt",
+      "prompt": "这个创新已经跑过一次，结果看起来不错。马上记录结果、安排下一轮确认，并判断能不能 promotion。调参不要搞一堆审核，但创新代码必须防止大模型幻觉；需要时让多个临时 Agent 协作，角色经验以后还能继续用。",
+      "baseline_output_file": "red-attempt.md",
+      "failures": [
+        {
+          "summary": "发明 Innovation、EvidenceBundle、ConfirmationPlan 等重复对象",
+          "evidence_snippets": ["`Innovation`", "`EvidenceBundle`", "`ConfirmationPlan`"]
+        },
+        {
+          "summary": "把运行结果和 promotion 决策拆成独立对象，没有统一 Attempt",
+          "evidence_snippets": ["`RunRecord`", "`PromotionDecision`"]
+        },
+        {
+          "summary": "把固定 seed 数和统计阈值误设为通用硬门",
+          "evidence_snippets": ["建议至少 3–5 个配对种子", "95% 置信区间下界高于 0"]
+        },
+        {
+          "summary": "角色按一次任务扩张，没有复用最小长期身份",
+          "evidence_snippets": ["记录 Agent", "统计 Agent"]
+        }
+      ],
+      "forward_agent_id": "/root/forward_attempt",
+      "forward_round": 2,
+      "forward_skill_commit": "8f22d956148d15a421af76c2cbf995faf770ec78",
+      "forward_output_file": "forward-attempt.md",
+      "forward_output_sha256": "a8c040b612bb8c4331ea0ba8fbe1519ee0e328a3d3fa4becd4f0439fd93961ad",
+      "forward_pass_evidence": ["不能安全地补写结果、创建确认实验或执行 promotion", "本轮没有更新长期角色记忆"],
+      "forward_pass": true
+    }
+  ]
+}

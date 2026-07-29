@@ -1,0 +1,29 @@
+.experiment-workflow.init.lock
+.experiment-workflow/.runtime/
+
+# 数据、运行输出与检查点
+data/
+runs/
+!.experiment-workflow/runs/
+!.experiment-workflow/runs/**/run.json
+checkpoints/
+
+# 常见模型权重
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.safetensors
+*.h5
+
+# 论文与本地环境
+*.pdf
+.env
+.env.*
+
+# Python 与工具缓存
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/

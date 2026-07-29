@@ -1,0 +1,22 @@
+{
+  "schema": "pack-sr.metrics.v1",
+  "formal_metrics": [
+    {
+      "name": "psnr_rgb_x2",
+      "higher_is_better": true,
+      "protocol": "custom_full_rgb_no_shave",
+      "comparability": "not_comparable_to_standard_y_channel_border_shave_without_recalculation",
+      "scale": 2,
+      "color_space": "full_rgb_uint8",
+      "aggregation": "cumulative_sse_over_all_values",
+      "shave_border": false,
+      "perfect_match": "error_no_infinity"
+    }
+  ],
+  "synthetic_debug_metrics": [
+    {
+      "name": "debug_psnr_rgb_x2",
+      "paper_eligible": false
+    }
+  ]
+}

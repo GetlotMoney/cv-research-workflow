@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>通用科研工作流最终架构</title>
+  <style>
+    :root{--ink:#18342b;--muted:#65766f;--paper:#fbfcf9;--line:#d7e2db;--green:#177657;--soft:#e9f4ee;--amber:#a66518;--amber-bg:#fff3dc}
+    *{box-sizing:border-box}body{margin:0;background:#eef3ee;color:var(--ink);font-family:"Microsoft YaHei UI","PingFang SC",system-ui,sans-serif}
+    main{max-width:1180px;margin:0 auto;padding:52px 24px 80px}.hero{background:linear-gradient(135deg,#153f32,#236d54);color:white;border-radius:28px;padding:40px;box-shadow:0 18px 50px #164b3630}
+    h1{font-size:clamp(30px,5vw,54px);margin:0 0 12px;letter-spacing:-.04em}.hero p{margin:0;max-width:760px;color:#dcebe4;font-size:18px;line-height:1.8}
+    .meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}.pill{border:1px solid #ffffff42;border-radius:999px;padding:7px 12px;font-size:13px}
+    section{margin-top:26px;background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:26px}h2{margin:0 0 18px;font-size:22px}
+    .flow{display:grid;grid-template-columns:repeat(7,1fr);gap:10px;align-items:stretch}.node{min-height:112px;border:1px solid var(--line);border-radius:16px;padding:15px;background:white}.node strong{display:block;margin-bottom:8px}.node small{color:var(--muted);line-height:1.55}.arrow{display:grid;place-items:center;color:var(--green);font-size:24px}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.card{border:1px solid var(--line);border-radius:16px;padding:18px;background:white}.card.ready{background:var(--soft);border-color:#a9ceb9}.card.pending{background:var(--amber-bg);border-color:#ead1a5}.state{display:inline-block;margin-top:12px;border-radius:999px;padding:5px 9px;font-size:12px;font-weight:700}.ready .state{background:#cfe8d9;color:#145b43}.pending .state{background:#f6ddb2;color:#7d4d15}
+    .rules{display:grid;grid-template-columns:1fr 1fr;gap:16px}.rule{display:flex;gap:13px;align-items:flex-start}.n{flex:0 0 30px;height:30px;border-radius:50%;display:grid;place-items:center;background:var(--green);color:white;font-weight:700}.rule p{margin:2px 0 0;color:var(--muted);line-height:1.65}
+    .boundary{border-left:5px solid var(--green);background:#f2f8f4}.boundary code{display:block;margin-top:12px;background:#153f32;color:#e8f4ed;border-radius:13px;padding:16px;white-space:pre-wrap;line-height:1.8}
+    footer{padding-top:22px;text-align:center;color:var(--muted);font-size:13px}
+    @media(max-width:850px){.flow{grid-template-columns:1fr}.arrow{transform:rotate(90deg)}.grid,.rules{grid-template-columns:1fr}.hero{padding:28px}}
+  </style>
+</head>
+<body>
+<main>
+  <header class="hero">
+    <h1>通用科研工作流</h1>
+    <p>先把一条真实科研链路跑稳，再创建个人实例。当前只开放 GZSL，所有正式运行固定使用 CUDA；科研和论文由用户主动生成的交付包连接。</p>
+    <div class="meta"><span class="pill">SYS-RESEARCH-V2.0.2</span><span class="pill">唯一根目录 D:\智能双流系统</span><span class="pill">无内置个人实例</span></div>
+  </header>
+
+  <section>
+    <h2>最短可用路径</h2>
+    <div class="flow">
+      <div class="node"><strong>通用模板</strong><small>刚克隆即可检查，不产生个人数据。</small></div><div class="arrow">→</div>
+      <div class="node"><strong>个人实例</strong><small>用户主动运行实例化和激活命令。</small></div><div class="arrow">→</div>
+      <div class="node"><strong>GZSL 仓库</strong><small>选择方向后才创建独立 Git 仓库。</small></div><div class="arrow">→</div>
+      <div class="node"><strong>四类实验</strong><small>独立分支、Worktree、编号和证据。</small></div>
+    </div>
+    <div class="flow" style="margin-top:10px">
+      <div class="node"><strong>GPU Run</strong><small>debug → evidence；train、evaluate、infer。</small></div><div class="arrow">→</div>
+      <div class="node"><strong>人工确认</strong><small>复核 S/U/H、日志、配置和哈希。</small></div><div class="arrow">→</div>
+      <div class="node"><strong>科研交付包</strong><small>只有用户主动生成，保存稳定快照。</small></div><div class="arrow">→</div>
+      <div class="node"><strong>PaperFlow</strong><small>第二阶段独立导入，不读取活动仓库。</small></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>六个方向，一份状态</h2>
+    <div class="grid">
+      <div class="card pending"><strong>图像分类</strong><br><span class="state">待做</span></div>
+      <div class="card pending"><strong>目标检测</strong><br><span class="state">待做</span></div>
+      <div class="card pending"><strong>实例分割</strong><br><span class="state">待做</span></div>
+      <div class="card pending"><strong>语义分割</strong><br><span class="state">待做</span></div>
+      <div class="card pending"><strong>超分辨率</strong><br><span class="state">待做</span></div>
+      <div class="card ready"><strong>GZSL</strong><br><span class="state">已开放 · GPU-only</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>GZSL 的四条实验路线</h2>
+    <div class="rules">
+      <div class="rule"><span class="n">复</span><p><b>复现</b>：验证论文或已有代码，编号 `repro-*`，不会产生子 Framework。</p></div>
+      <div class="rule"><span class="n">调</span><p><b>调参</b>：改变配置，编号 `tune-*`，不会产生子 Framework。</p></div>
+      <div class="rule"><span class="n">消</span><p><b>消融</b>：关闭或替换已有模块，编号 `ablate-*`，不会产生子 Framework。</p></div>
+      <div class="rule"><span class="n">创</span><p><b>创新</b>：必须绑定 Idea，编号 `innov-*`；成功、确认并提交后才能晋级。</p></div>
+    </div>
+  </section>
+
+  <section class="boundary">
+    <h2>不会越过的边界</h2>
+    <code>不提前创建个人实例
+不提前创建五个空方向仓库
+不提供 GZSL CPU 退路
+不把原始数据复制进 Git
+不把“信任外来代码”冒充操作系统沙箱
+不接受手写两份相同成绩作为等价证明
+不把合成调试结果当论文成绩
+不让 PaperFlow 直接读取变化中的实验目录
+不自动 push、投稿或发布</code>
+  </section>
+  <footer>正式副本：docs\architecture\RESEARCH_WORKFLOW_FINAL.html · 2026-07-29</footer>
+</main>
+</body>
+</html>

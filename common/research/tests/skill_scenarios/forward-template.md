@@ -1,0 +1,48 @@
+> sanitized transcript（脱敏转录）：仅替换本地绝对路径；原平台任务记录仍是最终来源。
+
+`demo-user`，已按 `$cv-experiment-workflow` 建好全新的隔离实验项目：
+
+`<TEMP>/cvexp-forward-template`
+
+初始化校验通过，但我没有伪造论文想法、来源或基础模型信息，因此暂未创建 Trial 和实验代码，也没有改旧 Trial。当前账本状态为 `valid: true`，且 `trials/code_assets/attempts/versions` 均为 0。
+
+要继续落地代码，请一次性给我：
+
+1. 论文想法的具体机制，以及准备接入基础模型的哪个位置。
+2. 论文标题、URL 或 PDF；有官方代码的话给仓库地址。若只给论文标题，我可以再核验论文和官方实现。
+3. 基础模型 Git 仓库 URL 或本地路径、精确 40 位 commit，以及模型代码相对路径。
+
+模板只能据此精确选择：
+
+- 特征输出后变换：`feature-adapter`
+- 多路融合前门控：`fusion-gate`
+- 训练目标辅助损失：`auxiliary-loss`
+- 采样或数据视图变化：`sampler-data-view`
+
+目前 `adapter.json` 明确为 `status: unbound`、`code_sources: []`，所以不能安全登记基础 Version。信息补齐后即可创建全新的 Trial + CodeAsset，核验论文及官方代码出处，并运行契约测试和账本校验；不需要复制基础仓库到实验账本。
+
+实际写入与验证命令：
+
+```powershell
+$env:PYTHONIOENCODING='utf-8'
+python '<SKILL_ROOT>/scripts/rw.py' init --path '<TEMP>/cvexp-forward-template' --name 'cvexp-forward-template'
+```
+
+结果：
+
+```json
+{"schema":"cv-experiment-workflow.project.v1","project_id":"ceefc4ef-2a90-4c3d-bd5d-ae1bca463ffa","name":"cvexp-forward-template"}
+```
+
+```powershell
+$env:PYTHONIOENCODING='utf-8'
+python '<SKILL_ROOT>/scripts/rw.py' validate --project '<TEMP>/cvexp-forward-template'
+```
+
+结果：
+
+```json
+{"schema":"cv-experiment-workflow.validation.v1","valid":true,"trials":0,"code_assets":0,"frameworks":0,"attempts":0,"results":0,"versions":0,"draft_versions":0}
+```
+
+另外实际运行了 `init --help`、`validate --help`，完整读取了 `SKILL.md`、`references/workflow.md`、`references/code-and-provenance.md` 以及四份模板 `template.json`；未修改技能仓库、既有项目 或其他项目。

@@ -1,0 +1,40 @@
+{
+  "schema": "cv-experiment-workflow.runnable-domain-pack.v1",
+  "id": "seg",
+  "version": "1.0.0",
+  "template_id": "PACK-SEG",
+  "primary_direction": "seg",
+  "license": "MIT",
+  "source_references": [
+    {
+      "name": "torchvision",
+      "url": "https://github.com/pytorch/vision",
+      "revision": "78839c2c243098a860dc8de1583c311ef2966c98",
+      "license": "BSD-3-Clause"
+    }
+  ],
+  "task": "semantic_segmentation",
+  "commands": [
+    "train",
+    "evaluate",
+    "infer",
+    "synthetic_smoke"
+  ],
+  "entrypoints": {
+    "train": "python -m seg.train",
+    "evaluate": "python -m seg.evaluate",
+    "infer": "python -m seg.infer",
+    "synthetic_smoke": "python -m seg.smoke"
+  },
+  "dataset": {
+    "format": "paired_rgb_png_and_index_mask_png",
+    "large_files_bundled": false,
+    "automatic_download": false
+  },
+  "metrics_contract": "contracts/metrics.v1.json",
+  "synthetic_smoke": {
+    "run_kind": "synthetic_debug_only",
+    "paper_eligible": false,
+    "device": "cpu"
+  }
+}

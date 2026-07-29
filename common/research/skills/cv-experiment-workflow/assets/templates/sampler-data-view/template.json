@@ -1,0 +1,14 @@
+{
+  "schema": "cv-experiment-workflow.template.v1",
+  "family": "sampler-data-view",
+  "attachment_points": ["data-loader"],
+  "required_capabilities": [],
+  "interfaces": ["data-loader"],
+  "dependencies": [],
+  "provenance_status": "verified",
+  "template_kind": "structural_scaffold",
+  "scientific_claim_scope": "none",
+  "papers": [],
+  "code_sources": [],
+  "canonical_sha256": "cf309aaf8a4d71756680e1bb63d316375c5f40532f6990174242b8936ccac115"
+}

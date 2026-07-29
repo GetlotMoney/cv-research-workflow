@@ -1,0 +1,11 @@
+Command: python -B -X utf8 -m unittest tests.test_scenario_evidence -v
+Exit code: 0
+
+test_forward_results_are_reserved_for_green_phase (tests.test_scenario_evidence.ScenarioEvidenceTests.test_forward_results_are_reserved_for_green_phase) ... ok
+test_red_green_order_and_agent_isolation_are_auditable (tests.test_scenario_evidence.ScenarioEvidenceTests.test_red_green_order_and_agent_isolation_are_auditable) ... ok
+test_three_baselines_capture_real_failures (tests.test_scenario_evidence.ScenarioEvidenceTests.test_three_baselines_capture_real_failures) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.001s
+
+OK

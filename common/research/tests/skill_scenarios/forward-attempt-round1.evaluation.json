@@ -1,0 +1,27 @@
+{
+  "schema_version": "skill-forward-evaluation.v1",
+  "case_id": "attempt-confirm-promotion",
+  "agent_id": "/root/forward_attempt",
+  "round": 1,
+  "evaluated_skill_commit": "ffcdcc48b2d941f652192b83c2b1b932b2fcdfea",
+  "output_file": "forward-attempt-round1.md",
+  "output_sha256": "8bd647b49af9d41a3855ce6f0173d0feb50c832edc0bb5246ab865eadf11f38c",
+  "pass": false,
+  "failures": [
+    {
+      "summary": "缺少真实实验事实时额外创建确认计划 Markdown",
+      "evidence_snippets": ["[确认实验计划]", "CONFIRMATION_PLAN.md"]
+    },
+    {
+      "summary": "把 Skill 通用规则重复写入五个角色 memory",
+      "evidence_snippets": ["已通过 CLI 持久化五类角色经验", "coordinator -> .experiment-workflow/agents/coordinator.md"]
+    }
+  ],
+  "fix_commit": "8f22d956148d15a421af76c2cbf995faf770ec78",
+  "final_retest": {
+    "round": 2,
+    "output_file": "forward-attempt.md",
+    "output_sha256": "a8c040b612bb8c4331ea0ba8fbe1519ee0e328a3d3fa4becd4f0439fd93961ad",
+    "pass": true
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "schema": "pack-cls.config.v1",
+  "seed": 7,
+  "device": "cuda",
+  "image_size": 16,
+  "train_split": "train",
+  "evaluation_split": "val",
+  "epochs": 2,
+  "batch_size": 4,
+  "learning_rate": 0.02
+}

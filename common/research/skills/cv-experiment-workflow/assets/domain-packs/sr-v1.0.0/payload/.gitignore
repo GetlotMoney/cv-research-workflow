@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+.cv-workflow-output/
+runs/
+outputs/
+data/
+datasets/
+*.pt
+*.pth
+*.ckpt

@@ -1,0 +1,14 @@
+{
+  "schema": "cv-experiment-workflow.template.v1",
+  "family": "auxiliary-loss",
+  "attachment_points": ["training-objective"],
+  "required_capabilities": [],
+  "interfaces": ["training-objective"],
+  "dependencies": [],
+  "provenance_status": "verified",
+  "template_kind": "structural_scaffold",
+  "scientific_claim_scope": "none",
+  "papers": [],
+  "code_sources": [],
+  "canonical_sha256": "38f71519d9fd6c17bc32900d4d6f6110f04ce3a4994671ab5461df0c696b61c2"
+}

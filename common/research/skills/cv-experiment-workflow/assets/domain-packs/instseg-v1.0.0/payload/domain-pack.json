@@ -1,0 +1,48 @@
+{
+  "schema": "cv-experiment-workflow.runnable-domain-pack.v1",
+  "id": "instseg",
+  "version": "1.0.0",
+  "template_id": "PACK-INSTSEG",
+  "primary_direction": "instseg",
+  "license": "MIT",
+  "source_references": [
+    {
+      "name": "torchvision",
+      "url": "https://github.com/pytorch/vision",
+      "revision": "78839c2b06c83c6cfb5c4da692ffb331bbd4c4cc",
+      "license": "BSD-3-Clause"
+    },
+    {
+      "name": "pycocotools",
+      "url": "https://github.com/ppwwyyxx/cocoapi",
+      "revision": "ac87f5077ad6b8864c2dc5e93d14cae62d1db05a",
+      "license": "BSD-2-Clause"
+    }
+  ],
+  "task": "instance_segmentation",
+  "commands": ["train", "evaluate", "infer", "synthetic_smoke"],
+  "entrypoints": {
+    "train": "python -m src.instseg.train",
+    "evaluate": "python -m src.instseg.evaluate",
+    "infer": "python -m src.instseg.infer",
+    "synthetic_smoke": "python -m src.instseg.smoke"
+  },
+  "dataset": {
+    "format": "strict_coco_polygon",
+    "rle_supported": false,
+    "crowd_supported": false,
+    "large_files_bundled": false,
+    "automatic_download": false
+  },
+  "formal_evaluator": {
+    "package": "pycocotools",
+    "exact_version": "2.0.11",
+    "iou_type": "segm",
+    "fallback": false
+  },
+  "synthetic_smoke": {
+    "run_kind": "synthetic_debug_only",
+    "paper_eligible": false,
+    "device": "cpu"
+  }
+}

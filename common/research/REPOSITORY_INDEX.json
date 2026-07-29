@@ -1,0 +1,20 @@
+{
+  "schema": "workflow-repository-index.v1",
+  "owner_repository": "cv-experiment-workflow",
+  "path_base": "index_directory",
+  "repositories": [
+    {
+      "id": "cv-experiment-workflow",
+      "role": "通用科研工作流模板",
+      "path": ".",
+      "skill_path": "skills\\cv-experiment-workflow",
+      "access": "read_write"
+    }
+  ],
+  "policy": {
+    "read_repository_files": false,
+    "automatic_sync": false,
+    "shared_git_history": false,
+    "cross_repository_write_requires_explicit_user_authorization": true
+  }
+}

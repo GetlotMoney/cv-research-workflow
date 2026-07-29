@@ -1,0 +1,84 @@
+> sanitized transcript（脱敏转录）：仅替换本地绝对路径；原平台任务记录仍是最终来源。
+
+`demo-user`，已在独立项目中完成合规前推：
+
+[项目目录](<TEMP>/cvexp-forward-attempt)
+[确认实验计划](<TEMP>/cvexp-forward-attempt/CONFIRMATION_PLAN.md)
+
+结论：
+
+- “看起来不错”已作为待核验定性观察写入计划，但未伪装成结构化 Result。
+- 当前不能写 `accept`：缺少真实 Attempt、命令、seed、配置、metrics、对照、限制与制品引用。
+- 下一轮建议使用 `reproduction`，但用户确认 target、命令、配置和单个 seed 前，不能创建 `new-attempt`。
+- 当前不能 promotion，也未违规调用 `promotion-check`：项目中没有 completed + accepted Attempt。
+- 普通调参采用轻审核；新结果/确认采用标准审核；创新代码和 promotion 采用机器验证加只读 Reviewer 严格审核。
+
+已通过 CLI 持久化五类角色经验，可供后续临时 Agent 复用：
+
+- [Coordinator](<TEMP>/cvexp-forward-attempt/.experiment-workflow/agents/coordinator.md)
+- [Runner](<TEMP>/cvexp-forward-attempt/.experiment-workflow/agents/runner.md)
+- [Analyst](<TEMP>/cvexp-forward-attempt/.experiment-workflow/agents/analyst.md)
+- [Implementer](<TEMP>/cvexp-forward-attempt/.experiment-workflow/agents/implementer.md)
+- [Reviewer](<TEMP>/cvexp-forward-attempt/.experiment-workflow/agents/reviewer.md)
+
+创新代码防幻觉规则包括：不补造 API、公式、论文定位、license 或指标；外部 claim 必须有可定位证据；最小 diff；契约与测试先于 Agent 判断；Reviewer 只读复核；机器验证不可被多 Agent 意见替代。
+
+最终校验：
+
+```json
+{"schema":"cv-experiment-workflow.validation.v1","valid":true,"trials":0,"code_assets":0,"frameworks":0,"attempts":0,"results":0,"versions":0,"draft_versions":0}
+```
+
+实际执行的关键命令及结果：
+
+```powershell
+python '<SKILL_ROOT>/scripts/rw.py' init --help
+```
+
+```text
+usage: rw.py init [-h] --path PATH --name NAME
+```
+
+```powershell
+python '<SKILL_ROOT>/scripts/rw.py' init --path '<TEMP>/cvexp-forward-attempt' --name 'cvexp-forward-attempt'
+```
+
+```json
+{"schema":"cv-experiment-workflow.project.v1","project_id":"fbf76272-d44d-4d09-80de-6d596b100587","name":"cvexp-forward-attempt"}
+```
+
+还实际查看了以下帮助，没有伪造或执行对应写入：
+
+```powershell
+python '...\rw.py' record-result --help
+python '...\rw.py' new-attempt --help
+python '...\rw.py' promotion-check --help
+python '...\rw.py' update-role-memory --help
+python '...\rw.py' validate --help
+```
+
+五次角色记忆写入结果：
+
+```text
+coordinator -> .experiment-workflow/agents/coordinator.md, 742 bytes
+runner      -> .experiment-workflow/agents/runner.md, 430 bytes
+analyst     -> .experiment-workflow/agents/analyst.md, 522 bytes
+implementer -> .experiment-workflow/agents/implementer.md, 691 bytes
+reviewer    -> .experiment-workflow/agents/reviewer.md, 760 bytes
+```
+
+每次写入后均执行：
+
+```powershell
+python '<SKILL_ROOT>/scripts/rw.py' validate --project '<TEMP>/cvexp-forward-attempt'
+```
+
+每次结果均为 `valid: true`。
+
+要真正补录首次结果并冻结确认轮，还需提供：
+
+1. 创新机制、接入点、基础仓库 URL、精确 40 位 commit 和真实代码位置。
+2. 首次运行的命令、JSON 配置、单个 seed、结构化 metrics、对照、限制和制品路径。
+3. 确认轮准备使用的命令、配置与另一个单个 seed。
+
+没有修改 Skill 仓库、既有项目、测试、baseline、计划文档、Git 历史或其他 Agent 工作；没有创建远端、提交、推送或发布。

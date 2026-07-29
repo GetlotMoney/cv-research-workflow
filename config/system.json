@@ -1,0 +1,8 @@
+{
+  "schema": "cvwf.research-system-config.v2",
+  "research_root": "common/research",
+  "environment_file": "config/environment.local.json",
+  "directions_file": "config/directions/catalog.json",
+  "users_root": "users",
+  "active_workspace_file": "config/active-workspace.json"
+}

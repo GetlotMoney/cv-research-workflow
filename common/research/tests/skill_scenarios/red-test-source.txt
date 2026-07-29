@@ -1,0 +1,33 @@
+from __future__ import annotations
+
+import json
+import unittest
+from pathlib import Path
+
+
+EVIDENCE = Path(__file__).parent / "skill_scenarios" / "baseline.json"
+
+
+class ScenarioEvidenceTests(unittest.TestCase):
+    def load_evidence(self) -> dict:
+        self.assertTrue(EVIDENCE.is_file(), "RED baseline evidence is missing")
+        return json.loads(EVIDENCE.read_text(encoding="utf-8"))
+
+    def test_three_baselines_capture_real_failures(self) -> None:
+        payload = self.load_evidence()
+        self.assertEqual("skill-scenario.v1", payload["schema_version"])
+        self.assertEqual(3, len(payload["cases"]))
+        for case in payload["cases"]:
+            self.assertTrue(case["prompt"].strip())
+            self.assertTrue(case["baseline_output"].strip())
+            self.assertGreaterEqual(len(case["failures"]), 1)
+
+    def test_forward_results_are_reserved_for_green_phase(self) -> None:
+        payload = self.load_evidence()
+        for case in payload["cases"]:
+            self.assertIn("forward_output", case)
+            self.assertIn("forward_pass", case)
+
+
+if __name__ == "__main__":
+    unittest.main()

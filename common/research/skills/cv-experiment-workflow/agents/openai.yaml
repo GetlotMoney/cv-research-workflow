@@ -1,0 +1,4 @@
+interface:
+  display_name: "CV 实验工作流"
+  short_description: "用自然语言规划、记录、验证与晋级可复现的计算机视觉科研实验"
+  default_prompt: "使用 $cv-experiment-workflow 为当前项目初始化或继续可复现的 CV 实验工作流。"

@@ -1,0 +1,12 @@
+{
+  "schema": "pack-seg.config.v1",
+  "seed": 7,
+  "device": "cuda",
+  "image_size": 8,
+  "num_classes": 2,
+  "train_split": "train",
+  "evaluation_split": "val",
+  "epochs": 1,
+  "batch_size": 2,
+  "learning_rate": 0.02
+}

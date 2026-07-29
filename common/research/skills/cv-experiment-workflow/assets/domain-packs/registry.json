@@ -1,0 +1,47 @@
+{
+  "schema": "cv-experiment-workflow.domain-pack-registry.v1",
+  "packs": [
+    {
+      "id": "cls",
+      "version": "1.0.0",
+      "template_id": "PACK-CLS",
+      "primary_direction": "cls",
+      "directory": "cls-v1.0.0"
+    },
+    {
+      "id": "det",
+      "version": "1.0.0",
+      "template_id": "PACK-DET",
+      "primary_direction": "det",
+      "directory": "det-v1.0.0"
+    },
+    {
+      "id": "gzsl",
+      "version": "1.1.1",
+      "template_id": "PACK-GZSL",
+      "primary_direction": "gzsl",
+      "directory": "gzsl-v1.1.1"
+    },
+    {
+      "id": "instseg",
+      "version": "1.0.0",
+      "template_id": "PACK-INSTSEG",
+      "primary_direction": "instseg",
+      "directory": "instseg-v1.0.0"
+    },
+    {
+      "id": "seg",
+      "version": "1.0.0",
+      "template_id": "PACK-SEG",
+      "primary_direction": "seg",
+      "directory": "seg-v1.0.0"
+    },
+    {
+      "id": "sr",
+      "version": "1.0.0",
+      "template_id": "PACK-SR",
+      "primary_direction": "sr",
+      "directory": "sr-v1.0.0"
+    }
+  ]
+}

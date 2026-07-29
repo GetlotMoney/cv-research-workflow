@@ -1,0 +1,30 @@
+{
+  "schema": "pack-cls.metrics.v1",
+  "metrics": [
+    {
+      "name": "top1_accuracy",
+      "range": [
+        0.0,
+        1.0
+      ],
+      "higher_is_better": true
+    },
+    {
+      "name": "top5_accuracy",
+      "range": [
+        0.0,
+        1.0
+      ],
+      "higher_is_better": true,
+      "rule": "k=min(5,num_classes)"
+    },
+    {
+      "name": "macro_f1",
+      "range": [
+        0.0,
+        1.0
+      ],
+      "higher_is_better": true
+    }
+  ]
+}

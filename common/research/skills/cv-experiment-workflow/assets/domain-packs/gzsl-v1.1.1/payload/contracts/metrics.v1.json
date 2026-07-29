@@ -1,0 +1,28 @@
+{
+  "schema": "pack-gzsl.metrics.v1",
+  "formal_metrics": [
+    {
+      "name": "S",
+      "definition": "seen class-average accuracy",
+      "range": [0.0, 1.0]
+    },
+    {
+      "name": "U",
+      "definition": "unseen class-average accuracy",
+      "range": [0.0, 1.0]
+    },
+    {
+      "name": "H",
+      "definition": "2*S*U/(S+U); 0 when S+U=0",
+      "range": [0.0, 1.0]
+    }
+  ],
+  "candidate_classes": "seen_union_unseen",
+  "similarity": "cosine",
+  "calibration": "none",
+  "synthetic_debug_metrics": [
+    "debug_seen_class_average_accuracy",
+    "debug_unseen_class_average_accuracy",
+    "debug_harmonic_mean"
+  ]
+}

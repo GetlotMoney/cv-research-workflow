@@ -1,0 +1,41 @@
+{
+  "schema": "cv-experiment-workflow.runnable-domain-pack.v1",
+  "id": "sr",
+  "version": "1.0.0",
+  "template_id": "PACK-SR",
+  "primary_direction": "sr",
+  "license": "MIT",
+  "source_references": [
+    {
+      "name": "BasicSR",
+      "url": "https://github.com/XPixelGroup/BasicSR",
+      "revision": "651835a1b9d38dbbdaf45750f56906be2364f01a",
+      "license": "Apache-2.0"
+    }
+  ],
+  "task": "single_image_super_resolution_x2",
+  "commands": [
+    "train",
+    "evaluate",
+    "infer",
+    "synthetic_smoke"
+  ],
+  "entrypoints": {
+    "train": "python -m sr.train",
+    "evaluate": "python -m sr.evaluate",
+    "infer": "python -m sr.infer",
+    "synthetic_smoke": "python -m sr.smoke"
+  },
+  "dataset": {
+    "format": "paired_rgb_png",
+    "scale": 2,
+    "large_files_bundled": false,
+    "automatic_download": false
+  },
+  "metrics_contract": "contracts/metrics.v1.json",
+  "synthetic_smoke": {
+    "run_kind": "synthetic_debug_only",
+    "paper_eligible": false,
+    "device": "cpu"
+  }
+}

@@ -1,0 +1,138 @@
+{
+  "files": [
+    {
+      "path": ".gitattributes",
+      "sha256": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da",
+      "size": 8
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "c66821e2c4cc358594cacc40bc9675e9cdb5498962a2e65e4d2f0d863fd90adf",
+      "size": 115
+    },
+    {
+      "path": "DOWNLOADS.json",
+      "sha256": "21a54c748ad4cb872c8dc81d981e975f49c3d0061ab7e684f64b85e2d5d16482",
+      "size": 918
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "553b2d071494bae4655cada1464cc9b357fc2484c9d4f747c9c7039b41fdf59b",
+      "size": 1092
+    },
+    {
+      "path": "README.md",
+      "sha256": "59e6b136121927b108f50b29376e9bf8d61d1a3a15d78e48332f166e1170412b",
+      "size": 3388
+    },
+    {
+      "path": "configs/baseline.json",
+      "sha256": "cabb9b3702e9e04b9f2ff0d32ed7aa7bd639bb34b095fd2f93125cc3d3e1f02d",
+      "size": 124
+    },
+    {
+      "path": "configs/smoke.json",
+      "sha256": "81c7ad342382f96d32d48e8287d9dab424714c480552804460c39cfcaae0b16e",
+      "size": 178
+    },
+    {
+      "path": "contracts/metrics.v1.json",
+      "sha256": "e26989947f9714d2fa9cac75ebf45aa9dc3895e411973e72b42293f5940ec2f1",
+      "size": 578
+    },
+    {
+      "path": "domain-pack.json",
+      "sha256": "099bd5cd792a1ed9aa7c966a37ce750cdf734d66181e0b9c9358ac0e5f3cbc42",
+      "size": 1004
+    },
+    {
+      "path": "requirements/windows-cpu.lock.txt",
+      "sha256": "869f767633e137d0b45b829e9057a93f60041309f73b73f74ba5044c23484b75",
+      "size": 97
+    },
+    {
+      "path": "sr/__init__.py",
+      "sha256": "23106e60833664d0357efdcfa71dbb4eab690b958c5f772aff9f9dddb29949e1",
+      "size": 67
+    },
+    {
+      "path": "sr/contract.py",
+      "sha256": "dd546e9083be63bf8dac0543e5118a3e13e3e512991b6c1dbaee2f34d51fa17a",
+      "size": 20227
+    },
+    {
+      "path": "sr/data.py",
+      "sha256": "2cd2c939328422dc4e5224c7012e91e039d942f2b3685d89a04e4341f94251e2",
+      "size": 14036
+    },
+    {
+      "path": "sr/evaluate.py",
+      "sha256": "3459a72b2e4da11561b277126271e6f00f7d0657f7d777ac5b7a4b6756586983",
+      "size": 1035
+    },
+    {
+      "path": "sr/infer.py",
+      "sha256": "9d803d03a4484cd65a8ecbdadf87bbd9db5bb15d860ab65c23f89d799c501591",
+      "size": 1095
+    },
+    {
+      "path": "sr/metrics.py",
+      "sha256": "49addcee3ba2a260ba4ad291898c897dfab6c921abe2f9e2ad3ef603defaf1e1",
+      "size": 1557
+    },
+    {
+      "path": "sr/model.py",
+      "sha256": "4f01e37d31c714db3fe1e4bf9333fb7735cafebe16d4a8c32c3655434569918e",
+      "size": 666
+    },
+    {
+      "path": "sr/runtime.py",
+      "sha256": "81d6d02c94df91361779d16266fe6009fad695cc84d5131ac44aa893a6d4a31b",
+      "size": 14790
+    },
+    {
+      "path": "sr/smoke.py",
+      "sha256": "00c4c0f78bf11c952da8196d4445fab7c392b22a8796fdf544546136defb69f9",
+      "size": 2279
+    },
+    {
+      "path": "sr/train.py",
+      "sha256": "dfb5334322f3011717b9f5badf3900631cc507563af1e077dc3324d4eb53bc37",
+      "size": 3091
+    },
+    {
+      "path": "sr/validate_output.py",
+      "sha256": "1bbc8be4831b7941c3abddd03d1d9009747d8a6c4d7a4d1c7622ad487fa7f890",
+      "size": 9633
+    },
+    {
+      "path": "tests/domain_pack/test_metric_contract.py",
+      "sha256": "e7984aa3c1ceeec27138a6958616d4c8955b9b756f0f188a393d24952d6c44c0",
+      "size": 631
+    },
+    {
+      "path": "tests/domain_pack/test_synthetic_smoke.py",
+      "sha256": "70831beb81449fd2f5477d5138b6939b1f60d35dfa1d2e7c3f48a3b225dad0d8",
+      "size": 870
+    },
+    {
+      "path": "workflow_adapter.py",
+      "sha256": "7247cd5993a636c6a8d058cf38cced3c5541b0761ad075c89330785d9ff455e8",
+      "size": 28888
+    }
+  ],
+  "id": "sr",
+  "license": "MIT",
+  "primary_direction": "sr",
+  "schema": "cv-experiment-workflow.domain-pack.v1",
+  "source_references": [
+    {
+      "license": "Apache-2.0",
+      "name": "BasicSR",
+      "revision": "651835a1b9d38dbbdaf45750f56906be2364f01a",
+      "url": "https://github.com/XPixelGroup/BasicSR"
+    }
+  ],
+  "template_id": "PACK-SR",
+  "version": "1.0.0"
+}

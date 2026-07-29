@@ -1,0 +1,119 @@
+{
+  "files": [
+    {
+      "path": ".gitattributes",
+      "sha256": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da",
+      "size": 8
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "50e68e538435c1a1211202887a01c452705ff6cc219a31e9e301c201eba54bb2",
+      "size": 108
+    },
+    {
+      "path": "DOWNLOADS.json",
+      "sha256": "0f2ccc89d21de017ea2b485a2a80e05e0df2d613053ec4cdf6e48571a597698c",
+      "size": 1430
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "553b2d071494bae4655cada1464cc9b357fc2484c9d4f747c9c7039b41fdf59b",
+      "size": 1092
+    },
+    {
+      "path": "README.md",
+      "sha256": "0ec49655f21c2ffcc03af42f06e67476a8de07068f72dd01107c47a6d0c7c87a",
+      "size": 2989
+    },
+    {
+      "path": "configs/baseline.json",
+      "sha256": "1a50876e99f5e0cba165ca82f27fae5153b7d2e469ecd42299a1d936a0d17b39",
+      "size": 371
+    },
+    {
+      "path": "configs/smoke.json",
+      "sha256": "d22e87d9939f6b065697713771d702c1109fcd8eee673a2366f83c7d9d1ff3be",
+      "size": 191
+    },
+    {
+      "path": "contracts/metrics.v1.json",
+      "sha256": "0b2a9679d6d4cc25790a12297f327b7c25fe30188b9527b025327ee040904978",
+      "size": 304
+    },
+    {
+      "path": "domain-pack.json",
+      "sha256": "c5209d5e7eddb36f1a391eccf870dd90baa770057f81a0e999ac85b3211890d9",
+      "size": 1251
+    },
+    {
+      "path": "requirements/windows-cpu.lock.txt",
+      "sha256": "bc09edbda563cc46a88377a07e0a388066b1e8d4bd2c379a57147ae7a3eeaf75",
+      "size": 117
+    },
+    {
+      "path": "src/__init__.py",
+      "sha256": "b46208eeecb42ce00ab6db828a012111380d611f53ebb62e4362f9f19bff4b5b",
+      "size": 40
+    },
+    {
+      "path": "src/det/__init__.py",
+      "sha256": "43fa86732f1d7db48920a50594f731ed5c407bd7e6a4892712f9cc956f053282",
+      "size": 57
+    },
+    {
+      "path": "src/det/evaluate.py",
+      "sha256": "e9564215f0903d7f3127700927cace1ee1596716efc27758e1b6a2da76f52272",
+      "size": 1070
+    },
+    {
+      "path": "src/det/infer.py",
+      "sha256": "3da8d8ab5943fc39d1ee07bb7260b0a78616c8d1937155aa1d7e4c62f5ac05a2",
+      "size": 1068
+    },
+    {
+      "path": "src/det/runtime.py",
+      "sha256": "aeb051c6a415c9efe86f7dab057fa9dcf355ed7a4730855264b57bb9991f7a51",
+      "size": 66793
+    },
+    {
+      "path": "src/det/smoke.py",
+      "sha256": "a6238b90a27d99484aad42a602aeebbab530654265bb33102585738e71ab31f6",
+      "size": 955
+    },
+    {
+      "path": "src/det/train.py",
+      "sha256": "ada2c68d638cff89860f74a0743d0239ab438790d660ef3f0752981dab47c6b5",
+      "size": 1321
+    },
+    {
+      "path": "tests/domain_pack/test_synthetic_smoke.py",
+      "sha256": "6f862e5caf365f3b3e75f724d735c88a61a8eeec090ac4d57e8bed5d4b1b0982",
+      "size": 685
+    },
+    {
+      "path": "workflow_adapter.py",
+      "sha256": "165d994946bd591f9061610424cc1c7caec9f7988727ff7c7a1b11c2a92ae730",
+      "size": 25375
+    }
+  ],
+  "id": "det",
+  "license": "MIT",
+  "primary_direction": "det",
+  "schema": "cv-experiment-workflow.domain-pack.v1",
+  "source_references": [
+    {
+      "license": "BSD-3-Clause",
+      "name": "torchvision",
+      "revision": "78839c2b06c83c6cfb5c4da692ffb331bbd4c4cc",
+      "url": "https://github.com/pytorch/vision"
+    },
+    {
+      "license": "BSD-2-Clause",
+      "name": "pycocotools",
+      "revision": "ac87f5077ad6b8864c2dc5e93d14cae62d1db05a",
+      "url": "https://github.com/ppwwyyxx/cocoapi"
+    }
+  ],
+  "template_id": "PACK-DET",
+  "version": "1.0.0"
+}

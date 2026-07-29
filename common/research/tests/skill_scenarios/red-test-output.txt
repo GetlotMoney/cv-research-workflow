@@ -1,0 +1,32 @@
+sanitized transcript（脱敏转录）：仅替换本地绝对路径；原平台任务记录仍是最终来源。
+
+Command: python -B -X utf8 -m unittest tests.test_scenario_evidence -v
+Exit code: 1
+
+test_forward_results_are_reserved_for_green_phase (tests.test_scenario_evidence.ScenarioEvidenceTests.test_forward_results_are_reserved_for_green_phase) ... FAIL
+test_three_baselines_capture_real_failures (tests.test_scenario_evidence.ScenarioEvidenceTests.test_three_baselines_capture_real_failures) ... FAIL
+
+======================================================================
+FAIL: test_forward_results_are_reserved_for_green_phase (tests.test_scenario_evidence.ScenarioEvidenceTests.test_forward_results_are_reserved_for_green_phase)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<REPO_ROOT>/tests/test_scenario_evidence.py", line 26, in test_forward_results_are_reserved_for_green_phase
+    payload = self.load_evidence()
+  File "<REPO_ROOT>/tests/test_scenario_evidence.py", line 13, in load_evidence
+    self.assertTrue(EVIDENCE.is_file(), "RED baseline evidence is missing")
+AssertionError: False is not true : RED baseline evidence is missing
+
+======================================================================
+FAIL: test_three_baselines_capture_real_failures (tests.test_scenario_evidence.ScenarioEvidenceTests.test_three_baselines_capture_real_failures)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<REPO_ROOT>/tests/test_scenario_evidence.py", line 17, in test_three_baselines_capture_real_failures
+    payload = self.load_evidence()
+  File "<REPO_ROOT>/tests/test_scenario_evidence.py", line 13, in load_evidence
+    self.assertTrue(EVIDENCE.is_file(), "RED baseline evidence is missing")
+AssertionError: False is not true : RED baseline evidence is missing
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.001s
+
+FAILED (failures=2)

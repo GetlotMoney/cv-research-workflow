@@ -1,0 +1,118 @@
+{
+  "schema_version": "skill-scenario-execution.v1",
+  "recorded_at": "2026-07-12T22:09:49.8302742+08:00",
+  "attestation": {
+    "kind": "controller_record",
+    "scope": "sanitized transcript（脱敏转录）：仅替换本地绝对路径；文件摘要与内部顺序可复核，真实 Agent 调度仍以当前 Codex 任务工具记录为最终来源",
+    "cryptographic_platform_receipt": false
+  },
+  "red_test": {
+    "command": "python -B -X utf8 -m unittest tests.test_scenario_evidence -v",
+    "exit_code": 1,
+    "output_file": "red-test-output.txt",
+    "output_sha256": "9dcddcf316ea88779efe9bbeb3e54c653fdd05fceb2f83deeac0e77ff27635c0",
+    "test_source_file": "red-test-source.txt",
+    "test_source_sha256": "7194bc2c26487198f6355452cff4e8ecd4ee3e3c7076c4232144afc014aab46e",
+    "observed_before_baseline_evidence": true,
+    "expected_failure": "RED baseline evidence is missing"
+  },
+  "green_test": {
+    "command": "python -B -X utf8 -m unittest tests.test_scenario_evidence -v",
+    "exit_code": 0,
+    "output_file": "green-test-output.txt",
+    "output_sha256": "06574a9cc8199ddb7e2aa5f4b2632ed1b4fb216075be76b0c53fbe4c4d71ce00",
+    "test_source_file": "green-test-source.txt",
+    "test_source_sha256": "4ecc238aca629da4dc677dcbb5b1f6ef1b274f9244334c1d68193f5f7a2c265e",
+    "observed_after_baseline_evidence": true
+  },
+  "agents": [
+    {
+      "case_id": "initialize-project",
+      "agent_id": "/root/red_initialize",
+      "fork_turns": "none",
+      "skill_loaded": false,
+      "spawn_prompt": "你正在帮助一位完全不懂工作流的 CV 研究者。用户说：\n\n“我刚克隆了一个科研工作流工具。请立刻在我的新论文项目中初始化实验工作流，尽量少建文件，不要问问题，并告诉我本地与 GitHub 应该怎么放。以后我要用自然语言记录想法和实验。”\n\n不要读取或使用任何名为 cv-experiment-workflow 的 Skill，不要修改任何文件。直接给出你会采取的具体方案和目录结构，作为给用户的回答。",
+      "output_file": "red-initialize.md",
+      "output_sha256": "b3148253f83cc3b4edfe268710d12a8ae79de7f7e69a66e0562307a2a8ac3887"
+    },
+    {
+      "case_id": "paper-idea-to-template",
+      "agent_id": "/root/red_template",
+      "fork_turns": "none",
+      "skill_loaded": false,
+      "spawn_prompt": "你正在帮助一位 CV 研究者把一个来自 GZSL 论文的想法做成创新实验。用户说：\n\n“马上把这个论文想法写成代码实验。不要在旧 Trial 上改，给我找一个合适代码模板；要写清论文和官方代码从哪里来，但尽量少写文档。我的基础模型在另一个 Git 仓库。”\n\n不要读取或使用任何名为 cv-experiment-workflow 的 Skill，不要修改任何文件。直接说明从 Idea 到代码模板与首次运行你会怎么做，包括你认为必须保存的事实。",
+      "output_file": "red-template.md",
+      "output_sha256": "76b13cb8848bd82bf2417c718f754014f22bd315c52a89799e57c03909019709"
+    },
+    {
+      "case_id": "attempt-confirm-promotion",
+      "agent_id": "/root/red_attempt",
+      "fork_turns": "none",
+      "skill_loaded": false,
+      "spawn_prompt": "你正在帮助一位 CV 研究者管理一次实验。用户说：\n\n“这个创新已经跑过一次，结果看起来不错。马上记录结果、安排下一轮确认，并判断能不能 promotion。调参不要搞一堆审核，但创新代码必须防止大模型幻觉；需要时让多个临时 Agent 协作，角色经验以后还能继续用。”\n\n不要读取或使用任何名为 cv-experiment-workflow 的 Skill，不要修改任何文件。直接给出你会采用的对象、步骤、Agent 分工和 promotion 判断办法。",
+      "output_file": "red-attempt.md",
+      "output_sha256": "1a6c0cb932a9f2e9058a987ff6352b1c9d1b57f2add35dcb1e8de5dbdcf6209d"
+    }
+  ],
+  "forward_tests": {
+    "recorded_at": "2026-07-14T02:11:25.0152679+08:00",
+    "attestation": {
+      "kind": "controller_record",
+      "scope": "sanitized transcript（脱敏转录）、SHA-256、Skill commit 与检查时临时项目目录状态；未脱敏原始输出与真实 Agent 调度仍以当前 Codex 任务工具记录为最终来源",
+      "cryptographic_platform_receipt": false
+    },
+    "cases": [
+      {
+        "case_id": "initialize-project",
+        "agent_id": "/root/forward_initialize",
+        "skill_loaded": true,
+        "skill_commit": "ffcdcc48b2d941f652192b83c2b1b932b2fcdfea",
+        "output_file": "forward-initialize.md",
+        "output_sha256": "4380e6ef7406fdf2bc489ed98a4c3d8cb507c57057da53b482494882f7a653ee",
+        "pass": true,
+        "project_audit": {
+          "path": "<TEMP>/cvexp-forward-initialize",
+          "exists_at_inspection": true,
+          "regular_file_count": 8,
+          "role_memory_file_count": 0,
+          "unexpected_markdown_files": [],
+          "validation": {"valid": true, "trials": 0, "code_assets": 0, "frameworks": 0, "attempts": 0, "results": 0, "versions": 0, "draft_versions": 0}
+        }
+      },
+      {
+        "case_id": "paper-idea-to-template",
+        "agent_id": "/root/forward_template",
+        "skill_loaded": true,
+        "skill_commit": "ffcdcc48b2d941f652192b83c2b1b932b2fcdfea",
+        "output_file": "forward-template.md",
+        "output_sha256": "c191f0d3e8f0c2213a035c44ab232d59a068eda7ef294824e31bddd176705326",
+        "pass": true,
+        "project_audit": {
+          "path": "<TEMP>/cvexp-forward-template",
+          "exists_at_inspection": true,
+          "regular_file_count": 8,
+          "role_memory_file_count": 0,
+          "unexpected_markdown_files": [],
+          "validation": {"valid": true, "trials": 0, "code_assets": 0, "frameworks": 0, "attempts": 0, "results": 0, "versions": 0, "draft_versions": 0}
+        }
+      },
+      {
+        "case_id": "attempt-confirm-promotion",
+        "agent_id": "/root/forward_attempt",
+        "skill_loaded": true,
+        "skill_commit": "8f22d956148d15a421af76c2cbf995faf770ec78",
+        "output_file": "forward-attempt.md",
+        "output_sha256": "a8c040b612bb8c4331ea0ba8fbe1519ee0e328a3d3fa4becd4f0439fd93961ad",
+        "pass": true,
+        "project_audit": {
+          "path": "<TEMP>/cvexp-forward-attempt-round2",
+          "exists_at_inspection": true,
+          "regular_file_count": 8,
+          "role_memory_file_count": 0,
+          "unexpected_markdown_files": [],
+          "validation": {"valid": true, "trials": 0, "code_assets": 0, "frameworks": 0, "attempts": 0, "results": 0, "versions": 0, "draft_versions": 0}
+        }
+      }
+    ]
+  }
+}
