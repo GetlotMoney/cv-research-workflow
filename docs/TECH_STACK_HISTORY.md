@@ -23,7 +23,7 @@
 
 | 对象 | 当前版本 | 状态 |
 |---|---|---|
-| 通用科研系统 | `SYS-RESEARCH-V2.0.2` | 已完成，机器验证与反例审核通过 |
+| 通用科研系统 | `SYS-RESEARCH-V2.0.2` | 已完成，已发布到私有 GitHub 仓库 |
 | 通用科研界面 | `UI-RESEARCH-V2.0.2` | 已完成，浏览器与契约验证通过 |
 | 六方向状态 | `DATA-DIRECTIONS-V1.0.0` | 已完成 |
 | 科研数据与证据 | `DATA-RESEARCH-V2.0.2` | 已完成，并发与失败恢复验证通过 |
@@ -46,7 +46,7 @@
 - 已知限制：外来代码仍不是操作系统沙箱，只能运行已人工审读的可信代码；复核人名字是人工声明，不是数字身份认证。
 - 素材位置：`common/research/skills/cv-experiment-workflow/`、`web/index.html`、`tests/`。
 - 验证命令：外来框架真假反例、创新真实基线 GPU 闭环、并发数据登记、Framework 全组和 Ultra 同反例复核。
-- 当前结果：根目录 41 项完整回归通过；Framework 10 项、外来框架真假反例、真实创新基线、并发登记与失败重试均通过；功能复核与 Ultra 反例复核结论均为 `PASS`。确切数字见 `docs/reviews/RESEARCH_V2_VALIDATION.md`。
+- 当前结果：根目录 41 项完整回归通过；全新发布树先安装再跑 41 项也通过；Framework 10 项、外来框架真假反例、真实创新基线、并发登记与失败重试均通过；三路独立复核结论均为 `PASS`。通用科研文件已发布到私有仓库 `GetlotMoney/cv-research-workflow`，确切数字见 `docs/reviews/RESEARCH_V2_VALIDATION.md`。
 - 回退方式：恢复 `SYS-RESEARCH-V2.0.1` 候选；不建议，因为会重新开放已证实的假阳性。
 
 ## SYS-RESEARCH-V2.0.1、UI-RESEARCH-V2.0.1、DATA-RESEARCH-V2.0.1、SKILL-RESEARCH-V2.0.1：最终证据收口
